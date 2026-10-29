@@ -1,0 +1,20 @@
+# Entornos y claves
+.env
+.venv/
+venv/
+
+# Python y Jupyter
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Lo que generan las lecciones al correr
+mlruns/
+mlartifacts/
+modulos/**/salidas/
+
+# Node (simulaciones)
+node_modules/
+
+# Capturas de Playwright
+.playwright-mcp/
