@@ -1,0 +1,127 @@
+# Lección 5. Qué prueba atrapa cada falla de la lección 1.
+# A la izquierda, las fallas; a la derecha, la prueba automática que las rechaza antes de la decisión. Cada paso enciende una fila.
+# intervalo: 2600
+...@../estilo
+
+vars: {d2-config: {layout-engine: elk}}
+
+classes: {
+  falla: {
+    width: 330
+    height: 44
+    style: {fill: ${nodo}; stroke: ${borde}; stroke-width: 1; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  falla-activa: {
+    width: 330
+    height: 44
+    style: {fill: ${rosa-suave}; stroke: ${rosa}; stroke-width: 2; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  p-datos: {
+    width: 330
+    height: 44
+    style: {fill: ${celeste-suave}; stroke: ${celeste}; stroke-width: 1; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  p-datos-activa: {
+    width: 330
+    height: 44
+    style: {fill: ${celeste-suave}; stroke: ${celeste}; stroke-width: 3; border-radius: 8; font: mono; font-size: 14; bold: true; font-color: ${tinta}}
+  }
+  p-features: {
+    width: 330
+    height: 44
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 1; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  p-features-activa: {
+    width: 330
+    height: 44
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 3; border-radius: 8; font: mono; font-size: 14; bold: true; font-color: ${tinta}}
+  }
+  p-compuerta: {
+    width: 330
+    height: 44
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 1; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  p-compuerta-activa: {
+    width: 330
+    height: 44
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 3; border-radius: 8; font: mono; font-size: 14; bold: true; font-color: ${tinta}}
+  }
+  cabecera: {
+    shape: text
+    width: 330
+    style: {font: mono; font-size: 15; bold: true; font-color: ${suave}}
+  }
+}
+
+grid-columns: 1
+grid-gap: 14
+
+filas: {
+  class: invisible
+  grid-columns: 2
+  grid-gap: 24
+
+  izq: {
+    class: invisible
+    grid-columns: 1
+    grid-gap: 10
+
+    h: "lo que falla" {class: cabecera}
+    f1: "consumo en kWh desde el 10 feb" {class: falla}
+    f2: "falta el 10 de marzo" {class: falla}
+    f3: "x(t) usa la temperatura real" {class: falla}
+    f4: "get_dummies: 7 columnas, luego 1" {class: falla}
+    f5: "el modelo pierde en el 3.er trimestre" {class: falla}
+  }
+
+  der: {
+    class: invisible
+    grid-columns: 1
+    grid-gap: 10
+
+    h: "la prueba que lo rechaza" {class: cabecera}
+    p1: "datos: rangos y unidades" {class: p-datos}
+    p2: "datos: fechas seguidas" {class: p-datos}
+    p3: "features: causalidad" {class: p-features}
+    p4: "features: mismas columnas con 1 día" {class: p-features}
+    p5: "compuerta: por trimestre" {class: p-compuerta}
+  }
+}
+
+explica: "Cada falla de la lección 1 tiene una prueba que la rechaza antes de que llegue al pronóstico." {class: paso; width: 700; height: 44}
+
+steps: {
+  1: {
+    filas.izq.f1.class: falla-activa
+    filas.der.p1.class: p-datos-activa
+    explica.label: "El medidor reporta kWh: el rango del consumo y el cociente entre días seguidos lo rechazan."
+  }
+  2: {
+    filas.izq.f1.class: falla
+    filas.der.p1.class: p-datos
+    filas.izq.f2.class: falla-activa
+    filas.der.p2.class: p-datos-activa
+    explica.label: "Un día perdido deja un hueco en las fechas: la prueba de fechas seguidas lo ve, y el rezago queda en NaN."
+  }
+  3: {
+    filas.izq.f2.class: falla
+    filas.der.p2.class: p-datos
+    filas.izq.f3.class: falla-activa
+    filas.der.p3.class: p-features-activa
+    explica.label: "Se alteran al azar los datos posteriores a t: si x(t) cambia, la feature mira el futuro."
+  }
+  4: {
+    filas.izq.f3.class: falla
+    filas.der.p3.class: p-features
+    filas.izq.f4.class: falla-activa
+    filas.der.p4.class: p-features-activa
+    explica.label: "Las features de un solo día deben tener las mismas columnas que las de entrenamiento."
+  }
+  5: {
+    filas.izq.f4.class: falla
+    filas.der.p4.class: p-features
+    filas.izq.f5.class: falla-activa
+    filas.der.p5.class: p-compuerta-activa
+    explica.label: "La compuerta compara con la línea base trimestre a trimestre, y no solo en el año."
+  }
+}
