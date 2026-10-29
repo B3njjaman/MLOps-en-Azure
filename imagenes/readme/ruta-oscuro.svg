@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-labelledby="titulo">
+<title id="titulo">Los siete módulos del curso, del 1 al 7</title>
+<style>
+.sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif}
+.mono{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace}
+.marcha{stroke-dasharray:6 7;animation:marcha 1.3s linear infinite}
+@keyframes marcha{to{stroke-dashoffset:-26}}
+@media (prefers-reduced-motion:reduce){.marcha{animation:none}}
+</style>
+<defs>
+<linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1120"/><stop offset="1" stop-color="#141d33"/></linearGradient>
+<pattern id="puntos" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#1b2640"/></pattern>
+<filter id="difuso" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
+<marker id="flecha" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#46587a"/></marker>
+<linearGradient id="progreso" gradientUnits="userSpaceOnUse" x1="90" y1="0" x2="1110" y2="0"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+</defs>
+<rect x=".5" y=".5" width="1199" height="219" rx="18" fill="url(#fondo)" stroke="#26324a"/>
+<rect x=".5" y=".5" width="1199" height="219" rx="18" fill="url(#puntos)"/>
+<path d="M90,54 L1110,54" stroke="#34445f" stroke-width="4" stroke-linecap="round"/>
+<path d="M90,54 L1110,54" stroke="url(#progreso)" stroke-width="4" stroke-linecap="round" pathLength="100" stroke-dasharray="100"><animate attributeName="stroke-dashoffset" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.0444;0.7111;0.9778;0.9789;1.0000" values="100;100;0;0;100;100"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.9222;0.9667;1.0000" values="1;1;0;0"/></path>
+<circle cx="90" cy="54" r="22" fill="#2dd4bf" opacity="0" filter="url(#difuso)"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.0444;0.0722;0.9222;0.9500;1.0000" values="0.0;0.0;0.55;0.55;0.0;0.0"/></circle>
+<circle cx="90" cy="54" r="20" fill="#111a2c" stroke="#34445f" stroke-width="2.5"/>
+<circle cx="90" cy="54" r="20" fill="#2dd4bf" fill-opacity=".16" stroke="#2dd4bf" stroke-width="2.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.0444;0.0722;0.9222;0.9500;1.0000" values="0;0;1;1;0;0"/></circle>
+<text x="90" y="54" class="mono" font-size="16" font-weight="700" fill="#e6edf3" text-anchor="middle" dy=".35em">1</text>
+<text x="90" y="108" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >Del notebook al</text>
+<text x="90" y="129" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >código reproducible</text>
+<text x="90" y="184" class="mono" font-size="13" font-weight="600" fill="#2dd4bf" text-anchor="middle" >5 de 5 lecciones</text>
+<circle cx="260" cy="54" r="22" fill="#38bdf8" opacity="0" filter="url(#difuso)"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.1556;0.1833;0.9222;0.9500;1.0000" values="0.0;0.0;0.55;0.55;0.0;0.0"/></circle>
+<circle cx="260" cy="54" r="20" fill="#111a2c" stroke="#34445f" stroke-width="2.5"/>
+<circle cx="260" cy="54" r="20" fill="#38bdf8" fill-opacity=".16" stroke="#38bdf8" stroke-width="2.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.1556;0.1833;0.9222;0.9500;1.0000" values="0;0;1;1;0;0"/></circle>
+<text x="260" y="54" class="mono" font-size="16" font-weight="700" fill="#e6edf3" text-anchor="middle" dy=".35em">2</text>
+<text x="260" y="108" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >Experimentos y</text>
+<text x="260" y="129" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >registro con MLflow</text>
+<text x="260" y="184" class="mono" font-size="13" font-weight="600" fill="#38bdf8" text-anchor="middle" >por escribir</text>
+<circle cx="430" cy="54" r="22" fill="#a78bfa" opacity="0" filter="url(#difuso)"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.2667;0.2944;0.9222;0.9500;1.0000" values="0.0;0.0;0.55;0.55;0.0;0.0"/></circle>
+<circle cx="430" cy="54" r="20" fill="#111a2c" stroke="#34445f" stroke-width="2.5"/>
+<circle cx="430" cy="54" r="20" fill="#a78bfa" fill-opacity=".16" stroke="#a78bfa" stroke-width="2.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.2667;0.2944;0.9222;0.9500;1.0000" values="0;0;1;1;0;0"/></circle>
+<text x="430" y="54" class="mono" font-size="16" font-weight="700" fill="#e6edf3" text-anchor="middle" dy=".35em">3</text>
+<text x="430" y="108" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >Pipelines de</text>
+<text x="430" y="129" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >entrenamiento</text>
+<text x="430" y="150" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >en Azure ML</text>
+<text x="430" y="184" class="mono" font-size="13" font-weight="600" fill="#a78bfa" text-anchor="middle" >por escribir</text>
+<circle cx="600" cy="54" r="22" fill="#fbbf24" opacity="0" filter="url(#difuso)"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.3778;0.4056;0.9222;0.9500;1.0000" values="0.0;0.0;0.55;0.55;0.0;0.0"/></circle>
+<circle cx="600" cy="54" r="20" fill="#111a2c" stroke="#34445f" stroke-width="2.5"/>
+<circle cx="600" cy="54" r="20" fill="#fbbf24" fill-opacity=".16" stroke="#fbbf24" stroke-width="2.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.3778;0.4056;0.9222;0.9500;1.0000" values="0;0;1;1;0;0"/></circle>
+<text x="600" y="54" class="mono" font-size="16" font-weight="700" fill="#e6edf3" text-anchor="middle" dy=".35em">4</text>
+<text x="600" y="108" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >Servir el modelo:</text>
+<text x="600" y="129" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >online y batch</text>
+<text x="600" y="184" class="mono" font-size="13" font-weight="600" fill="#fbbf24" text-anchor="middle" >por escribir</text>
+<circle cx="770" cy="54" r="22" fill="#4ade80" opacity="0" filter="url(#difuso)"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.4889;0.5167;0.9222;0.9500;1.0000" values="0.0;0.0;0.55;0.55;0.0;0.0"/></circle>
+<circle cx="770" cy="54" r="20" fill="#111a2c" stroke="#34445f" stroke-width="2.5"/>
+<circle cx="770" cy="54" r="20" fill="#4ade80" fill-opacity=".16" stroke="#4ade80" stroke-width="2.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.4889;0.5167;0.9222;0.9500;1.0000" values="0;0;1;1;0;0"/></circle>
+<text x="770" y="54" class="mono" font-size="16" font-weight="700" fill="#e6edf3" text-anchor="middle" dy=".35em">5</text>
+<text x="770" y="108" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >CI, CD y CT:</text>
+<text x="770" y="129" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >lanzar sin miedo</text>
+<text x="770" y="184" class="mono" font-size="13" font-weight="600" fill="#4ade80" text-anchor="middle" >por escribir</text>
+<circle cx="940" cy="54" r="22" fill="#fb7185" opacity="0" filter="url(#difuso)"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.6000;0.6278;0.9222;0.9500;1.0000" values="0.0;0.0;0.55;0.55;0.0;0.0"/></circle>
+<circle cx="940" cy="54" r="20" fill="#111a2c" stroke="#34445f" stroke-width="2.5"/>
+<circle cx="940" cy="54" r="20" fill="#fb7185" fill-opacity=".16" stroke="#fb7185" stroke-width="2.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.6000;0.6278;0.9222;0.9500;1.0000" values="0;0;1;1;0;0"/></circle>
+<text x="940" y="54" class="mono" font-size="16" font-weight="700" fill="#e6edf3" text-anchor="middle" dy=".35em">6</text>
+<text x="940" y="108" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >Monitoreo</text>
+<text x="940" y="129" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >y drift</text>
+<text x="940" y="184" class="mono" font-size="13" font-weight="600" fill="#fb7185" text-anchor="middle" >por escribir</text>
+<circle cx="1110" cy="54" r="22" fill="#2dd4bf" opacity="0" filter="url(#difuso)"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.7111;0.7389;0.9222;0.9500;1.0000" values="0.0;0.0;0.55;0.55;0.0;0.0"/></circle>
+<circle cx="1110" cy="54" r="20" fill="#111a2c" stroke="#34445f" stroke-width="2.5"/>
+<circle cx="1110" cy="54" r="20" fill="#2dd4bf" fill-opacity=".16" stroke="#2dd4bf" stroke-width="2.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.7111;0.7389;0.9222;0.9500;1.0000" values="0;0;1;1;0;0"/></circle>
+<text x="1110" y="54" class="mono" font-size="16" font-weight="700" fill="#e6edf3" text-anchor="middle" dy=".35em">7</text>
+<text x="1110" y="108" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >LLMOps: agentes</text>
+<text x="1110" y="129" class="sans" font-size="15" font-weight="600" fill="#e6edf3" text-anchor="middle" >en producción</text>
+<text x="1110" y="184" class="mono" font-size="13" font-weight="600" fill="#2dd4bf" text-anchor="middle" >por escribir</text>
+<g opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.0444;0.0667;0.9222;0.9667;1.0000" values="0;0;1;1;0;0"/><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.0444;0.7111;1.0000" keyPoints="0;0;1;1" path="M90,54 L1110,54"/><circle r="12" fill="#a78bfa" opacity=".5" filter="url(#difuso)"/><circle r="5" fill="#e6edf3"/></g>
+</svg>

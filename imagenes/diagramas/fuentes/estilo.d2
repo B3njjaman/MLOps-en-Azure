@@ -1,0 +1,151 @@
+# Estilo común de todos los diagramas. Cada diagrama lo importa con `...@../estilo`.
+#
+# Los colores son marcadores: generar.py los cambia por el color real del modo
+# claro y del oscuro, así cada SVG se ve bien con los dos temas. La paleta está
+# en generar.py; aquí solo se usan los nombres.
+
+vars: {
+  fondo: "#0a0b01"
+  tarjeta: "#0a0b02"
+  borde: "#0a0b03"
+  tinta: "#0a0b04"
+  suave: "#0a0b05"
+  tenue: "#0a0b06"
+  nodo: "#0a0b07"
+  borde-nodo: "#0a0b08"
+  linea: "#0a0b09"
+
+  turquesa: "#0a0c01"
+  turquesa-suave: "#0a0c02"
+  violeta: "#0a0c03"
+  violeta-suave: "#0a0c04"
+  ambar: "#0a0c05"
+  ambar-suave: "#0a0c06"
+  rosa: "#0a0c07"
+  rosa-suave: "#0a0c08"
+  celeste: "#0a0c09"
+  celeste-suave: "#0a0c10"
+  verde: "#0a0c11"
+  verde-suave: "#0a0c12"
+
+  d2-config: {
+    layout-engine: elk
+    pad: 28
+  }
+}
+
+style.fill: ${fondo}
+
+classes: {
+  # START y END
+  extremo: {
+    shape: oval
+    width: 96
+    height: 40
+    style: {fill: ${tarjeta}; stroke: ${borde-nodo}; stroke-width: 2; font: mono; font-size: 14; font-color: ${suave}}
+  }
+  # Un nodo que es una función común
+  nodo: {
+    style: {fill: ${nodo}; stroke: ${borde-nodo}; stroke-width: 2; border-radius: 10; font: mono; font-size: 16; font-color: ${tinta}}
+  }
+  # Un nodo que llama al modelo
+  nodo-llm: {
+    style: {fill: ${nodo}; stroke: ${violeta}; stroke-width: 2; border-radius: 10; font: mono; font-size: 16; font-color: ${tinta}}
+  }
+  # Un nodo que ejecuta herramientas
+  nodo-herramienta: {
+    style: {fill: ${nodo}; stroke: ${ambar}; stroke-width: 2; border-radius: 10; font: mono; font-size: 16; font-color: ${tinta}}
+  }
+  # Un nodo donde se detiene el grafo o interviene una persona
+  nodo-persona: {
+    style: {fill: ${nodo}; stroke: ${rosa}; stroke-width: 2; border-radius: 10; font: mono; font-size: 16; font-color: ${tinta}}
+  }
+
+  # Versiones encendidas, para el nodo que corre en ese paso de la animación
+  extremo-activo: {
+    shape: oval
+    width: 96
+    height: 40
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 3; font: mono; font-size: 14; font-color: ${tinta}}
+  }
+  nodo-activo: {
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 3; border-radius: 10; font: mono; font-size: 16; font-color: ${tinta}}
+  }
+  nodo-llm-activo: {
+    style: {fill: ${violeta-suave}; stroke: ${violeta}; stroke-width: 3; border-radius: 10; font: mono; font-size: 16; font-color: ${tinta}}
+  }
+  nodo-herramienta-activo: {
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 3; border-radius: 10; font: mono; font-size: 16; font-color: ${tinta}}
+  }
+  nodo-persona-activo: {
+    style: {fill: ${rosa-suave}; stroke: ${rosa}; stroke-width: 3; border-radius: 10; font: mono; font-size: 16; font-color: ${tinta}}
+  }
+
+  # Aristas
+  arista: {
+    style: {stroke: ${linea}; stroke-width: 2; font: mono; font-size: 13; font-color: ${suave}}
+  }
+  condicional: {
+    style: {stroke: ${linea}; stroke-width: 2; stroke-dash: 4; font: mono; font-size: 13; font-color: ${suave}}
+  }
+  recorrida: {
+    style: {stroke: ${turquesa}; stroke-width: 3; animated: true; font: mono; font-size: 13; font-color: ${tinta}}
+  }
+
+  # Recuadros y textos
+  panel: {
+    style: {fill: ${tarjeta}; stroke: ${borde}; stroke-width: 1; border-radius: 12; font: mono; font-size: 13; font-color: ${suave}}
+  }
+  grupo: {
+    style: {fill: ${fondo}; stroke: ${borde}; stroke-width: 1; stroke-dash: 3; border-radius: 12; font: mono; font-size: 13; font-color: ${suave}}
+  }
+  invisible: {
+    label: ""
+    style: {fill: ${fondo}; stroke: ${fondo}; stroke-width: 0}
+  }
+  nota: {
+    shape: text
+    style: {font-size: 14; font-color: ${suave}}
+  }
+  titulo: {
+    shape: text
+    style: {font-size: 20; bold: true; font-color: ${tinta}}
+  }
+  codigo: {
+    style: {fill: ${tarjeta}; stroke: ${borde}; stroke-width: 1; border-radius: 8; font: mono; font-size: 14; font-color: ${tinta}}
+  }
+
+  # Mensajes de la lista `messages`
+  msj-humano: {
+    width: 300
+    height: 36
+    style: {bold: false; fill: ${celeste-suave}; stroke: ${celeste}; stroke-width: 1; border-radius: 8; font: mono; font-size: 13; font-color: ${tinta}}
+  }
+  msj-ia: {
+    width: 300
+    height: 36
+    style: {bold: false; fill: ${violeta-suave}; stroke: ${violeta}; stroke-width: 1; border-radius: 8; font: mono; font-size: 13; font-color: ${tinta}}
+  }
+  msj-tool: {
+    width: 300
+    height: 36
+    style: {bold: false; fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 1; border-radius: 8; font: mono; font-size: 13; font-color: ${tinta}}
+  }
+  msj-sistema: {
+    width: 300
+    height: 36
+    style: {bold: false; fill: ${tarjeta}; stroke: ${borde-nodo}; stroke-width: 1; border-radius: 8; font: mono; font-size: 13; font-color: ${suave}}
+  }
+  msj-resumen: {
+    width: 300
+    height: 36
+    style: {bold: false; fill: ${verde-suave}; stroke: ${verde}; stroke-width: 1; border-radius: 8; font: mono; font-size: 13; font-color: ${tinta}}
+  }
+
+  # La línea que explica el paso de la animación. Tamaño fijo para que el dibujo no salte.
+  paso: {
+    width: 300
+    height: 56
+    style: {fill: ${tarjeta}; stroke: ${tarjeta}; stroke-width: 0; font-size: 15; bold: false; italic: false; font-color: ${tinta}}
+  }
+}
