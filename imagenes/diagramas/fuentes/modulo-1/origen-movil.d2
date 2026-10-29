@@ -1,0 +1,300 @@
+# Lección 3. Origen móvil: los pliegues avanzan en el tiempo y el entrenamiento siempre es anterior a la prueba.
+# Primero la ventana creciente, después la deslizante y al final la separación g entre entrenamiento y prueba.
+# intervalo: 2600
+...@../estilo
+
+vars: {d2-config: {layout-engine: elk}}
+
+classes: {
+  dia: {
+    width: 34
+    height: 34
+    style: {fill: ${nodo}; stroke: ${borde}; stroke-width: 1; border-radius: 6; font: mono; font-size: 12; bold: false; font-color: ${tenue}}
+  }
+  ent: {
+    width: 34
+    height: 34
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 1; border-radius: 6; font: mono; font-size: 12; bold: false; font-color: ${tinta}}
+  }
+  pru: {
+    width: 34
+    height: 34
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 1; border-radius: 6; font: mono; font-size: 12; bold: false; font-color: ${tinta}}
+  }
+  sep: {
+    width: 34
+    height: 34
+    style: {fill: ${tarjeta}; stroke: ${rosa}; stroke-width: 2; stroke-dash: 3; border-radius: 6; font: mono; font-size: 12; bold: false; font-color: ${tenue}}
+  }
+  rotulo: {
+    shape: text
+    width: 110
+    style: {font: mono; font-size: 14; font-color: ${suave}}
+  }
+  ley-ent: {
+    width: 150
+    height: 28
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 1; border-radius: 6; font: mono; font-size: 13; bold: false; font-color: ${tinta}}
+  }
+  ley-pru: {
+    width: 150
+    height: 28
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 1; border-radius: 6; font: mono; font-size: 13; bold: false; font-color: ${tinta}}
+  }
+  ley-sep: {
+    width: 150
+    height: 28
+    style: {fill: ${tarjeta}; stroke: ${rosa}; stroke-width: 2; stroke-dash: 3; border-radius: 6; font: mono; font-size: 13; bold: false; font-color: ${tinta}}
+  }
+  cabecera: {
+    shape: text
+    style: {font: mono; font-size: 15; bold: true; font-color: ${tinta}}
+  }
+}
+
+grid-columns: 1
+grid-gap: 14
+
+leyenda: {
+  class: invisible
+  grid-columns: 3
+  grid-gap: 12
+  e: "entrenamiento" {class: ley-ent}
+  p: "prueba" {class: ley-pru}
+  s: "descartado (g)" {class: ley-sep}
+}
+
+cab-creciente: "origen móvil, ventana creciente" {class: cabecera}
+
+creciente: {
+  class: invisible
+  grid-rows: 4
+  grid-columns: 15
+  grid-gap: 6
+
+  r1: "pliegue 1" {class: rotulo}
+  f1d1: "1" {class: dia}
+  f1d2: "2" {class: dia}
+  f1d3: "3" {class: dia}
+  f1d4: "4" {class: dia}
+  f1d5: "5" {class: dia}
+  f1d6: "6" {class: dia}
+  f1d7: "7" {class: dia}
+  f1d8: "8" {class: dia}
+  f1d9: "9" {class: dia}
+  f1d10: "10" {class: dia}
+  f1d11: "11" {class: dia}
+  f1d12: "12" {class: dia}
+  f1d13: "13" {class: dia}
+  f1d14: "14" {class: dia}
+  r2: "pliegue 2" {class: rotulo}
+  f2d1: "1" {class: dia}
+  f2d2: "2" {class: dia}
+  f2d3: "3" {class: dia}
+  f2d4: "4" {class: dia}
+  f2d5: "5" {class: dia}
+  f2d6: "6" {class: dia}
+  f2d7: "7" {class: dia}
+  f2d8: "8" {class: dia}
+  f2d9: "9" {class: dia}
+  f2d10: "10" {class: dia}
+  f2d11: "11" {class: dia}
+  f2d12: "12" {class: dia}
+  f2d13: "13" {class: dia}
+  f2d14: "14" {class: dia}
+  r3: "pliegue 3" {class: rotulo}
+  f3d1: "1" {class: dia}
+  f3d2: "2" {class: dia}
+  f3d3: "3" {class: dia}
+  f3d4: "4" {class: dia}
+  f3d5: "5" {class: dia}
+  f3d6: "6" {class: dia}
+  f3d7: "7" {class: dia}
+  f3d8: "8" {class: dia}
+  f3d9: "9" {class: dia}
+  f3d10: "10" {class: dia}
+  f3d11: "11" {class: dia}
+  f3d12: "12" {class: dia}
+  f3d13: "13" {class: dia}
+  f3d14: "14" {class: dia}
+  r4: "pliegue 4" {class: rotulo}
+  f4d1: "1" {class: dia}
+  f4d2: "2" {class: dia}
+  f4d3: "3" {class: dia}
+  f4d4: "4" {class: dia}
+  f4d5: "5" {class: dia}
+  f4d6: "6" {class: dia}
+  f4d7: "7" {class: dia}
+  f4d8: "8" {class: dia}
+  f4d9: "9" {class: dia}
+  f4d10: "10" {class: dia}
+  f4d11: "11" {class: dia}
+  f4d12: "12" {class: dia}
+  f4d13: "13" {class: dia}
+  f4d14: "14" {class: dia}
+}
+
+cab-deslizante: "ventana deslizante (w = 4)" {class: cabecera}
+
+deslizante: {
+  class: invisible
+  grid-rows: 4
+  grid-columns: 15
+  grid-gap: 6
+
+  r1: "pliegue 1" {class: rotulo}
+  f1d1: "1" {class: dia}
+  f1d2: "2" {class: dia}
+  f1d3: "3" {class: dia}
+  f1d4: "4" {class: dia}
+  f1d5: "5" {class: dia}
+  f1d6: "6" {class: dia}
+  f1d7: "7" {class: dia}
+  f1d8: "8" {class: dia}
+  f1d9: "9" {class: dia}
+  f1d10: "10" {class: dia}
+  f1d11: "11" {class: dia}
+  f1d12: "12" {class: dia}
+  f1d13: "13" {class: dia}
+  f1d14: "14" {class: dia}
+  r2: "pliegue 2" {class: rotulo}
+  f2d1: "1" {class: dia}
+  f2d2: "2" {class: dia}
+  f2d3: "3" {class: dia}
+  f2d4: "4" {class: dia}
+  f2d5: "5" {class: dia}
+  f2d6: "6" {class: dia}
+  f2d7: "7" {class: dia}
+  f2d8: "8" {class: dia}
+  f2d9: "9" {class: dia}
+  f2d10: "10" {class: dia}
+  f2d11: "11" {class: dia}
+  f2d12: "12" {class: dia}
+  f2d13: "13" {class: dia}
+  f2d14: "14" {class: dia}
+  r3: "pliegue 3" {class: rotulo}
+  f3d1: "1" {class: dia}
+  f3d2: "2" {class: dia}
+  f3d3: "3" {class: dia}
+  f3d4: "4" {class: dia}
+  f3d5: "5" {class: dia}
+  f3d6: "6" {class: dia}
+  f3d7: "7" {class: dia}
+  f3d8: "8" {class: dia}
+  f3d9: "9" {class: dia}
+  f3d10: "10" {class: dia}
+  f3d11: "11" {class: dia}
+  f3d12: "12" {class: dia}
+  f3d13: "13" {class: dia}
+  f3d14: "14" {class: dia}
+  r4: "pliegue 4" {class: rotulo}
+  f4d1: "1" {class: dia}
+  f4d2: "2" {class: dia}
+  f4d3: "3" {class: dia}
+  f4d4: "4" {class: dia}
+  f4d5: "5" {class: dia}
+  f4d6: "6" {class: dia}
+  f4d7: "7" {class: dia}
+  f4d8: "8" {class: dia}
+  f4d9: "9" {class: dia}
+  f4d10: "10" {class: dia}
+  f4d11: "11" {class: dia}
+  f4d12: "12" {class: dia}
+  f4d13: "13" {class: dia}
+  f4d14: "14" {class: dia}
+}
+
+explica: "Catorce días seguidos. Cada pliegue prueba con 2 días." {class: paso; width: 720; height: 44}
+
+steps: {
+  1: {
+    creciente.f1d1.class: ent
+    creciente.f1d2.class: ent
+    creciente.f1d3.class: ent
+    creciente.f1d4.class: ent
+    creciente.f1d5.class: ent
+    creciente.f1d6.class: ent
+    creciente.f1d7.class: pru
+    creciente.f1d8.class: pru
+    explica.label: "Pliegue 1: se entrena con los días 1 a 6 y se prueba con el 7 y el 8."
+  }
+  2: {
+    creciente.f2d1.class: ent
+    creciente.f2d2.class: ent
+    creciente.f2d3.class: ent
+    creciente.f2d4.class: ent
+    creciente.f2d5.class: ent
+    creciente.f2d6.class: ent
+    creciente.f2d7.class: ent
+    creciente.f2d8.class: ent
+    creciente.f2d9.class: pru
+    creciente.f2d10.class: pru
+    explica.label: "Pliegue 2: la prueba avanza y el entrenamiento crece. Ahora incluye el 7 y el 8, que antes fueron prueba."
+  }
+  3: {
+    creciente.f3d1.class: ent
+    creciente.f3d2.class: ent
+    creciente.f3d3.class: ent
+    creciente.f3d4.class: ent
+    creciente.f3d5.class: ent
+    creciente.f3d6.class: ent
+    creciente.f3d7.class: ent
+    creciente.f3d8.class: ent
+    creciente.f3d9.class: ent
+    creciente.f3d10.class: ent
+    creciente.f3d11.class: pru
+    creciente.f3d12.class: pru
+    explica.label: "Pliegue 3: lo mismo, dos días más adelante."
+  }
+  4: {
+    creciente.f4d1.class: ent
+    creciente.f4d2.class: ent
+    creciente.f4d3.class: ent
+    creciente.f4d4.class: ent
+    creciente.f4d5.class: ent
+    creciente.f4d6.class: ent
+    creciente.f4d7.class: ent
+    creciente.f4d8.class: ent
+    creciente.f4d9.class: ent
+    creciente.f4d10.class: ent
+    creciente.f4d11.class: ent
+    creciente.f4d12.class: ent
+    creciente.f4d13.class: pru
+    creciente.f4d14.class: pru
+    explica.label: "En todos los pliegues el entrenamiento es anterior a la prueba: max E < min P. La fuga es 0."
+  }
+  5: {
+    deslizante.f1d3.class: ent
+    deslizante.f1d4.class: ent
+    deslizante.f1d5.class: ent
+    deslizante.f1d6.class: ent
+    deslizante.f1d7.class: pru
+    deslizante.f1d8.class: pru
+    deslizante.f2d5.class: ent
+    deslizante.f2d6.class: ent
+    deslizante.f2d7.class: ent
+    deslizante.f2d8.class: ent
+    deslizante.f2d9.class: pru
+    deslizante.f2d10.class: pru
+    deslizante.f3d7.class: ent
+    deslizante.f3d8.class: ent
+    deslizante.f3d9.class: ent
+    deslizante.f3d10.class: ent
+    deslizante.f3d11.class: pru
+    deslizante.f3d12.class: pru
+    deslizante.f4d9.class: ent
+    deslizante.f4d10.class: ent
+    deslizante.f4d11.class: ent
+    deslizante.f4d12.class: ent
+    deslizante.f4d13.class: pru
+    deslizante.f4d14.class: pru
+    explica.label: "Ventana deslizante: igual, pero el entrenamiento conserva solo los últimos w = 4 días."
+  }
+  6: {
+    creciente.f1d6.class: sep
+    creciente.f2d8.class: sep
+    creciente.f3d10.class: sep
+    creciente.f4d12.class: sep
+    explica.label: "Con separación g = 1 se descarta el último día de entrenamiento de cada pliegue, antes de la prueba."
+  }
+}
