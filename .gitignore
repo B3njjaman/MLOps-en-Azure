@@ -12,6 +12,7 @@ __pycache__/
 mlruns/
 mlartifacts/
 modulos/**/salidas/
+modulos/modulo-1/features.py
 
 # Node (simulaciones)
 node_modules/

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="290" viewBox="0 0 1200 290" role="img" aria-labelledby="titulo">
+<title id="titulo">Módulo 6: el histograma de producción se separa del de entrenamiento, el PSI cruza el umbral de 0,2, salta una alerta y el reentrenamiento vuelve a alinear los datos</title>
+<style>
+.sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif}
+.mono{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace}
+.marcha{stroke-dasharray:6 7;animation:marcha 1.3s linear infinite}
+@keyframes marcha{to{stroke-dashoffset:-26}}
+@media (prefers-reduced-motion:reduce){.marcha{animation:none}}
+</style>
+<defs>
+<linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1120"/><stop offset="1" stop-color="#141d33"/></linearGradient>
+<pattern id="puntos" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#1b2640"/></pattern>
+<filter id="difuso" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
+<marker id="flecha" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#46587a"/></marker>
+
+</defs>
+<rect x=".5" y=".5" width="1199" height="289" rx="18" fill="url(#fondo)" stroke="#26324a"/>
+<rect x=".5" y=".5" width="1199" height="289" rx="18" fill="url(#puntos)"/>
+<text x="48" y="64" class="mono" font-size="15" font-weight="700" fill="#fb7185" text-anchor="start" letter-spacing="3">MÓDULO 6</text>
+<text x="46" y="110" class="sans" font-size="34" font-weight="800" fill="#e6edf3" text-anchor="start" letter-spacing="-0.5">Monitoreo y drift</text>
+<text x="48" y="148" class="sans" font-size="18" font-weight="400" fill="#9aa7b8" text-anchor="start" >Cuando los datos de producción</text>
+<text x="48" y="174" class="sans" font-size="18" font-weight="400" fill="#9aa7b8" text-anchor="start" >se separan de los de entrenamiento:</text>
+<text x="48" y="200" class="sans" font-size="18" font-weight="400" fill="#9aa7b8" text-anchor="start" >PSI, alerta y reentrenamiento.</text>
+<g><rect x="48" y="232" width="132.16" height="32" rx="10" fill="#fb7185" fill-opacity=".14" stroke="#fb7185" stroke-opacity=".75" stroke-width="1.2"/><text x="114.08" y="248" class="mono" font-size="14" font-weight="400" fill="#e6edf3" text-anchor="middle" dy=".35em">por escribir</text></g>
+<g><rect x="520" y="28" width="124" height="26" rx="10" fill="#2dd4bf" fill-opacity=".14" stroke="#2dd4bf" stroke-opacity=".75" stroke-width="1.2"/><text x="582" y="41" class="mono" font-size="12" font-weight="400" fill="#e6edf3" text-anchor="middle" dy=".35em">entrenamiento</text></g>
+<g><rect x="654" y="28" width="104" height="26" rx="10" fill="#fbbf24" fill-opacity=".14" stroke="#fbbf24" stroke-opacity=".75" stroke-width="1.2"/><text x="706" y="41" class="mono" font-size="12" font-weight="400" fill="#e6edf3" text-anchor="middle" dy=".35em">producción</text></g>
+<path d="M514,206 L790,206" stroke="#34445f" stroke-width="2" stroke-linecap="round"/>
+<text x="650" y="230" class="mono" font-size="12" font-weight="400" fill="#9aa7b8" text-anchor="middle" >temperatura (feature)</text>
+<rect x="520" y="198.1" width="24" height="7.9" rx="3" fill="#2dd4bf" fill-opacity=".4" stroke="#2dd4bf" stroke-width="1.4"/>
+<rect x="546" y="176.1" width="24" height="29.9" rx="3" fill="#2dd4bf" fill-opacity=".4" stroke="#2dd4bf" stroke-width="1.4"/>
+<rect x="572" y="133.2" width="24" height="72.8" rx="3" fill="#2dd4bf" fill-opacity=".4" stroke="#2dd4bf" stroke-width="1.4"/>
+<rect x="598" y="92.5" width="24" height="113.5" rx="3" fill="#2dd4bf" fill-opacity=".4" stroke="#2dd4bf" stroke-width="1.4"/>
+<rect x="624" y="92.5" width="24" height="113.5" rx="3" fill="#2dd4bf" fill-opacity=".4" stroke="#2dd4bf" stroke-width="1.4"/>
+<rect x="650" y="133.2" width="24" height="72.8" rx="3" fill="#2dd4bf" fill-opacity=".4" stroke="#2dd4bf" stroke-width="1.4"/>
+<rect x="676" y="176.1" width="24" height="29.9" rx="3" fill="#2dd4bf" fill-opacity=".4" stroke="#2dd4bf" stroke-width="1.4"/>
+<rect x="702" y="198.1" width="24" height="7.9" rx="3" fill="#2dd4bf" fill-opacity=".4" stroke="#2dd4bf" stroke-width="1.4"/>
+<rect x="728" y="204.7" width="24" height="1.3" rx="3" fill="#2dd4bf" fill-opacity=".4" stroke="#2dd4bf" stroke-width="1.4"/>
+<rect x="754" y="205.9" width="24" height="0.1" rx="3" fill="#2dd4bf" fill-opacity=".4" stroke="#2dd4bf" stroke-width="1.4"/>
+<g opacity="0"><animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.0500;0.0800;0.9200;0.9500;1.0000" values="0;0;1;1;0;0"/><animateTransform attributeName="transform" type="translate" dur="10s" repeatCount="indefinite" keyTimes="0;0.1000;0.5200;0.8200;0.8800;1" values="0 0;0 0;78 0;78 0;0 0;0 0" calcMode="linear"/>
+<rect x="520" y="198.1" width="24" height="7.9" rx="3" fill="#fbbf24" fill-opacity=".4" stroke="#fbbf24" stroke-width="1.4"/>
+<rect x="546" y="176.1" width="24" height="29.9" rx="3" fill="#fbbf24" fill-opacity=".4" stroke="#fbbf24" stroke-width="1.4"/>
+<rect x="572" y="133.2" width="24" height="72.8" rx="3" fill="#fbbf24" fill-opacity=".4" stroke="#fbbf24" stroke-width="1.4"/>
+<rect x="598" y="92.5" width="24" height="113.5" rx="3" fill="#fbbf24" fill-opacity=".4" stroke="#fbbf24" stroke-width="1.4"/>
+<rect x="624" y="92.5" width="24" height="113.5" rx="3" fill="#fbbf24" fill-opacity=".4" stroke="#fbbf24" stroke-width="1.4"/>
+<rect x="650" y="133.2" width="24" height="72.8" rx="3" fill="#fbbf24" fill-opacity=".4" stroke="#fbbf24" stroke-width="1.4"/>
+<rect x="676" y="176.1" width="24" height="29.9" rx="3" fill="#fbbf24" fill-opacity=".4" stroke="#fbbf24" stroke-width="1.4"/>
+<rect x="702" y="198.1" width="24" height="7.9" rx="3" fill="#fbbf24" fill-opacity=".4" stroke="#fbbf24" stroke-width="1.4"/>
+<rect x="728" y="204.7" width="24" height="1.3" rx="3" fill="#fbbf24" fill-opacity=".4" stroke="#fbbf24" stroke-width="1.4"/>
+<rect x="754" y="205.9" width="24" height="0.1" rx="3" fill="#fbbf24" fill-opacity=".4" stroke="#fbbf24" stroke-width="1.4"/>
+</g>
+<text x="900" y="52" class="mono" font-size="12" font-weight="400" fill="#9aa7b8" text-anchor="start" >PSI</text>
+<rect x="900" y="108" width="240" height="14" rx="7" fill="#0e1626" stroke="#34445f" stroke-width="1.5"/>
+<rect x="900" y="108" width="12" height="14" rx="7" fill="#38bdf8"><animate attributeName="width" dur="10s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.0600;0.5200;0.8200;0.8800;1.0000" values="12;12;162;162;12;12"/><animate attributeName="fill" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0.0000;0.3900;0.8800;1.0000" values="#38bdf8;#fb7185;#38bdf8;#38bdf8"/></rect>
+<path d="M1020,98 L1020,132" stroke="#fb7185" stroke-width="2.5" stroke-linecap="round"/>
+<text x="1020" y="152" class="mono" font-size="12" font-weight="400" fill="#fb7185" text-anchor="middle" >umbral 0,2</text>
+<g opacity="0"><animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.0050;0.0250;0.2400;0.2600;1.0000" values="0;0;1;1;0;0"/><text x="900" y="92" class="mono" font-size="26" font-weight="700" fill="#e6edf3" text-anchor="start" >0,02</text></g>
+<g opacity="0"><animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.2400;0.2600;0.3900;0.4100;1.0000" values="0;0;1;1;0;0"/><text x="900" y="92" class="mono" font-size="26" font-weight="700" fill="#e6edf3" text-anchor="start" >0,11</text></g>
+<g opacity="0"><animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.3900;0.4100;0.8500;0.8700;1.0000" values="0;0;1;1;0;0"/><text x="900" y="92" class="mono" font-size="26" font-weight="700" fill="#fb7185" text-anchor="start" >0,27</text></g>
+<g opacity="0"><animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.8500;0.8700;0.9200;0.9400;1.0000" values="0;0;1;1;0;0"/><text x="900" y="92" class="mono" font-size="26" font-weight="700" fill="#e6edf3" text-anchor="start" >0,03</text></g>
+<g opacity="0"><animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.4200;0.4500;0.8700;0.9000;1.0000" values="0;0;1;1;0;0"/><rect x="900" y="176" width="180" height="30" rx="10" fill="#fb7185" fill-opacity=".14" stroke="#fb7185" stroke-opacity=".75" stroke-width="1.2"/><text x="990" y="191" class="mono" font-size="13" font-weight="400" fill="#e6edf3" text-anchor="middle" dy=".35em">alerta · PSI &gt; 0,2</text></g>
+<g opacity="0"><animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="linear" keyTimes="0.0000;0.6200;0.6500;0.9200;0.9500;1.0000" values="0;0;1;1;0;0"/><rect x="900" y="218" width="200" height="30" rx="10" fill="#4ade80" fill-opacity=".14" stroke="#4ade80" stroke-opacity=".75" stroke-width="1.2"/><text x="1000" y="233" class="mono" font-size="13" font-weight="400" fill="#e6edf3" text-anchor="middle" dy=".35em">reentrenar el modelo</text></g>
+</svg>

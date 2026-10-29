@@ -1,0 +1,7 @@
+numpy>=1.26
+pandas>=2.2
+scikit-learn>=1.5
+matplotlib>=3.8
+pytest>=8
+ipytest>=0.14
+notebook
