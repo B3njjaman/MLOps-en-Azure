@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Complementarios del curso</title>
+<meta name="description" content="Simulaciones interactivas del curso de MLOps y LLMOps en Azure: validación temporal, drift y PSI, y despliegue canary.">
+<script>
+  try {
+    var modo = localStorage.getItem("complementarios-modo");
+    if (modo === "claro" || modo === "oscuro") document.documentElement.dataset.modo = modo;
+  } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+<script defer src="paquetes/portada.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a href="https://github.com/B3njjaman/MLOps-en-Azure">← El curso</a>
+    <button class="modo" type="button">Modo oscuro</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Curso de MLOps y LLMOps en Azure · Complementarios</p>
+      <h1>Simulaciones</h1>
+      <p class="lede">Las ideas del curso que se entienden mejor viéndolas correr. Cada simulación sigue una lección: se mueven los parámetros y al lado están la matemática y el código. Los errores salen del modelo real de la planta, y la lógica de cada una está probada contra scikit-learn.</p>
+    </section>
+
+    <div class="tarjetas">
+      <a class="tarjeta" href="validacion.html">
+        <p class="eyebrow">Módulo 1 · Lección 3</p>
+        <h2>Validación temporal</h2>
+        <p>Por qué partir una serie de tiempo al azar promete un error menor que el que después entrega el modelo, y cómo se valida bien: holdout, origen móvil y ventana deslizante, con la fuga a la vista.</p>
+        <span class="ir">Abrir →</span>
+      </a>
+      <div class="tarjeta pronto">
+        <p class="eyebrow">Módulo 6</p>
+        <h2>Drift y PSI</h2>
+        <p>Una variable que se corre de la distribución con que se entrenó y el índice de estabilidad de la población que lo mide, por tramos y umbrales.</p>
+        <span class="ir">Próximamente</span>
+      </div>
+      <div class="tarjeta pronto">
+        <p class="eyebrow">Módulo 5</p>
+        <h2>Despliegue canary</h2>
+        <p>Una versión nueva que recibe una fracción del tráfico, la métrica que decide si sube o se revierte y cuánto cuesta equivocarse.</p>
+        <span class="ir">Próximamente</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie">
+    Complementarios de <a href="https://github.com/B3njjaman/MLOps-en-Azure">un curso de MLOps y LLMOps en Azure</a>. Las simulaciones corren en el navegador, sin servidor.
+  </footer>
+</div>
+</body>
+</html>

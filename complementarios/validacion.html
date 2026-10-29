@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validación temporal</title>
+<meta name="description" content="Simulación de la lección 3 del módulo 1 del curso de MLOps y LLMOps en Azure: la validación aleatoria promete menos error del que el modelo entrega; holdout, origen móvil y ventana deslizante, con la fuga a la vista.">
+<script>
+  try {
+    var modo = localStorage.getItem("complementarios-modo");
+    if (modo === "claro" || modo === "oscuro") document.documentElement.dataset.modo = modo;
+  } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="estilo.css">
+<script defer src="paquetes/validacion.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a href="./">← Complementarios</a>
+    <button class="modo" type="button">Modo oscuro</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Módulo 1 · Lección 3 · Simulación</p>
+      <h1>Validación temporal</h1>
+      <p class="lede">Partir una serie de tiempo al azar promete un error menor que el que después entrega el modelo. Aquí se parte la historia de la planta con cuatro esquemas, se entrena el modelo de la lección en cada pliegue y se compara lo que cada esquema promete con el error real en 2026, un año que el modelo no vio.</p>
+    </section>
+
+    <div class="stage">
+      <canvas id="stage" role="img" aria-label="La serie de consumo y una fila por pliegue de la historia."></canvas>
+      <span class="idx">n = <span data-dato="n">1454</span> días</span>
+    </div>
+
+    <div class="cifras" id="cifras">
+      <div class="cifra promete"><span class="cifra-n" id="cifra-promete">–</span><span class="cifra-t">Promete · R̂ (MWh)</span></div>
+      <div class="cifra entrega"><span class="cifra-n" id="cifra-entrega">–</span><span class="cifra-t">Entrega en 2026 (MWh)</span></div>
+      <div class="cifra"><span class="cifra-n" id="cifra-fuga">–</span><span class="cifra-t">Fuga</span></div>
+      <div class="cifra"><span class="cifra-n" id="cifra-tiempo">–</span><span class="cifra-t">Respeta el tiempo</span></div>
+    </div>
+    <p class="veredicto" id="veredicto" aria-live="polite"></p>
+    <p class="error-sk" id="error-sk" role="alert" hidden></p>
+    <p class="hint">Los MAE son del modelo real, entrenado en cada pliegue · g solo se aplica a los esquemas temporales</p>
+
+    <div class="ctls">
+      <div class="ctl">
+        <span class="ctl-label">Esquema</span>
+        <div class="seg" id="ctl-esquema" role="group" aria-label="Esquema de validación"></div>
+      </div>
+      <div class="ctl" data-usa="K">
+        <span class="ctl-label"><span><span class="nombre">K</span> pliegues</span></span>
+        <div class="seg" role="group" aria-label="K, pliegues"></div>
+      </div>
+      <div class="ctl" data-usa="h">
+        <span class="ctl-label"><span><span class="nombre">h</span> días de prueba</span></span>
+        <div class="seg" role="group" aria-label="h, días de prueba"></div>
+      </div>
+      <div class="ctl" data-usa="g">
+        <span class="ctl-label"><span><span class="nombre">g</span> días de separación</span></span>
+        <div class="seg" role="group" aria-label="g, días de separación"></div>
+      </div>
+      <div class="ctl" data-usa="w">
+        <span class="ctl-label"><span><span class="nombre">w</span> días de entrenamiento como máximo</span></span>
+        <div class="seg" role="group" aria-label="w, días de entrenamiento como máximo"></div>
+      </div>
+    </div>
+
+    <div class="lado">
+      <section aria-label="Definición matemática del esquema">
+        <div class="lado-h"><span>El esquema</span><span>(E<sub>k</sub>, P<sub>k</sub>)</span></div>
+
+        <div data-esquema="aleatorio">
+          <div class="eq"><span class="tex-d">\pi : \{1,\dots,n\} \to \{1,\dots,K\}, \qquad P_k = \pi^{-1}(k), \quad E_k = \{1,\dots,n\} \setminus P_k</span></div>
+          <p class="eq-note">Un reparto aleatorio de los días en <span class="tex">K</span> grupos de tamaño casi igual (<code>KFold</code> con mezcla y <code>random_state=0</code>). Cada día es de prueba en un pliegue y de entrenamiento en los otros <span class="tex">K - 1</span>. Como el reparto ignora el orden, <span class="tex">E_k</span> tiene días posteriores a los de <span class="tex">P_k</span>: no respeta el tiempo. La separación no existe.</p>
+        </div>
+
+        <div data-esquema="holdout" hidden>
+          <div class="eq"><span class="tex-d">c = n - h + 1, \qquad P = \{c,\dots,n\}, \qquad E = \{1,\dots,c-g-1\}</span></div>
+          <p class="eq-note">Un solo pliegue, <span class="tex">K = 1</span>: se prueba en los últimos <span class="tex">h</span> días y se entrena con los anteriores al corte <span class="tex">c</span>, menos los <span class="tex">g</span> días de separación. Con <span class="tex">h = 365</span> la prueba es 2025 completo.</p>
+        </div>
+
+        <div data-esquema="creciente" hidden>
+          <div class="eq"><span class="tex-d">c_k = n - (K - k + 1)\,h + 1, \qquad P_k = \{c_k,\dots,c_k+h-1\}, \qquad E_k = \{1,\dots,c_k-g-1\}</span></div>
+          <p class="eq-note">Origen móvil con ventana creciente (<code>TimeSeriesSplit</code>): <span class="tex">K</span> bloques de prueba de <span class="tex">h</span> días, pegados al final de la historia, y en cada uno el entrenamiento llega hasta <span class="tex">g</span> días antes y parte siempre del día 1. Cada pliegue entrena con más historia que el anterior.</p>
+        </div>
+
+        <div data-esquema="deslizante" hidden>
+          <div class="eq"><span class="tex-d">E_k = \{\max(1,\ c_k-g-w),\dots,c_k-g-1\}, \qquad P_k = \{c_k,\dots,c_k+h-1\}</span></div>
+          <p class="eq-note">Ventana deslizante: los bloques de prueba son los de la ventana creciente, pero el entrenamiento conserva solo los últimos <span class="tex">w</span> días antes de la separación (<code>max_train_size</code>). Con <span class="tex">c_k</span> igual que en el origen móvil. Una ventana corta olvida lo que pasó hace más de <span class="tex">w</span> días.</p>
+        </div>
+      </section>
+
+      <section aria-label="Código de scikit-learn del esquema">
+        <div class="lado-h"><span>scikit-learn</span><span id="parametros-codigo"></span></div>
+
+        <div data-esquema="aleatorio">
+          <div class="lang"><span>Python · pliegues</span><button class="copy" type="button">Copiar</button></div>
+          <pre class="code" data-fuente="complementarios/datos/generar_datos.py"><code>validacion = KFold(n_splits=K, shuffle=True, random_state=0)
+pares = list(validacion.split(np.arange(n)))</code></pre>
+        </div>
+        <div data-esquema="holdout" hidden>
+          <div class="lang"><span>Python · pliegues</span><button class="copy" type="button">Copiar</button></div>
+          <pre class="code" data-fuente="complementarios/datos/generar_datos.py"><code>corte = n - h
+entrenamiento = np.arange(0, corte - g)
+prueba = np.arange(corte, n)
+pares = [(entrenamiento, prueba)]</code></pre>
+        </div>
+        <div data-esquema="creciente" hidden>
+          <div class="lang"><span>Python · pliegues</span><button class="copy" type="button">Copiar</button></div>
+          <pre class="code" data-fuente="complementarios/datos/generar_datos.py"><code>validacion = TimeSeriesSplit(n_splits=K, test_size=h, gap=g)
+pares = list(validacion.split(np.arange(n)))</code></pre>
+        </div>
+        <div data-esquema="deslizante" hidden>
+          <div class="lang"><span>Python · pliegues</span><button class="copy" type="button">Copiar</button></div>
+          <pre class="code" data-fuente="complementarios/datos/generar_datos.py"><code>validacion = TimeSeriesSplit(
+    n_splits=K, test_size=h, gap=g, max_train_size=w
+)
+pares = list(validacion.split(np.arange(n)))</code></pre>
+        </div>
+
+        <div>
+          <div class="lang"><span>Python · el error de cada pliegue</span><button class="copy" type="button">Copiar</button></div>
+          <pre class="code" data-fuente="complementarios/datos/generar_datos.py"><code>for entrenamiento, prueba in pares:
+    modelo = RandomForestRegressor(n_estimators=200, random_state=0, n_jobs=-1)
+    modelo.fit(X.iloc[entrenamiento], y.iloc[entrenamiento])
+    predicho = modelo.predict(X.iloc[prueba])
+    maes.append(mean_absolute_error(y.iloc[prueba], predicho))</code></pre>
+        </div>
+        <p class="nota-codigo"><code>K</code>, <code>h</code>, <code>g</code> y <code>w</code> toman los valores de los controles. <code>X</code> e <code>y</code> son las <span data-dato="n">1454</span> filas de la historia con rezagos completos.</p>
+      </section>
+    </div>
+
+    <div id="resultados">
+      <h2 class="blk-h" style="margin-top:2.6rem">El error de cada pliegue</h2>
+      <div class="stage" style="margin-top:1rem">
+        <canvas id="barras" role="img" aria-label="El MAE de cada pliegue, la estimación R sombrero del esquema y el error real en 2026."></canvas>
+      </div>
+      <div class="traza tabla-pliegues" id="tabla-pliegues">
+        <div class="traza-h"><span>Pliegues · días</span><span id="tabla-resumen"></span></div>
+        <div class="traza-cuerpo">
+          <table>
+            <thead><tr><th class="min">k</th><th>Entrenamiento</th><th>Prueba</th><th>MAE</th><th>Fuga</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <section class="blk">
+      <h2 class="blk-h">Qué mirar</h2>
+      <ul class="blk-p">
+        <li><strong>El esquema aleatorio promete de más.</strong> Con <span class="tex">K = 5</span> promete <span data-cifra="est:aleatorio|5"></span> MWh y el modelo entrega <span data-cifra="real:"></span> MWh en 2026. La fuga es <span data-cifra="fuga:aleatorio|5"></span>: casi cada día de prueba tiene días de entrenamiento posteriores. Entre ellos, el día siguiente, cuya variable <code>consumo_ayer</code> es el consumo del día de prueba.</li>
+        <li><strong>Más pliegues no lo arreglan.</strong> Con <span class="tex">K</span> = 3, 5 y 10 el aleatorio promete <span data-cifra="est:aleatorio|3"></span>, <span data-cifra="est:aleatorio|5"></span> y <span data-cifra="est:aleatorio|10"></span> MWh. El sesgo viene de mezclar el tiempo, no de cuántos pliegues se usan.</li>
+        <li><strong>El holdout depende de dónde cae.</strong> Probar en 2025 (<span class="tex">h = 365</span>) promete <span data-cifra="est:holdout|365|0"></span> MWh, sin fuga. Probar solo en diciembre (<span class="tex">h = 30</span>) promete <span data-cifra="est:holdout|30|0"></span> MWh. Un solo bloque es una sola muestra del futuro, y cambia mucho de un bloque a otro.</li>
+        <li><strong>El origen móvil promedia varios bloques.</strong> Con <span class="tex">K = 5</span>, <span class="tex">h = 90</span> y <span class="tex">g = 7</span> promete <span data-cifra="est:creciente|5|90|7"></span> MWh y la fuga es <span data-cifra="fuga:creciente|5|90|7"></span>. Es más honesto que el aleatorio, pero no acierta exacto: 2026 es otro año, y el error de un año es una sola muestra.</li>
+        <li><strong>La separación <span class="tex">g</span> casi no pesa aquí.</strong> En el origen móvil con <span class="tex">K = 5</span> y <span class="tex">h = 90</span>, subir <span class="tex">g</span> de 0 a 30 mueve la estimación de <span data-cifra="est:creciente|5|90|0"></span> a <span data-cifra="est:creciente|5|90|30"></span> MWh. Cambia en décimas, y por eso la lección la trata como un seguro y no como el centro del esquema.</li>
+        <li><strong>Una ventana corta olvida.</strong> Con ventana deslizante, <span class="tex">K = 10</span>, <span class="tex">h = 30</span>, <span class="tex">g = 0</span> y <span class="tex">w = 180</span>, el pliegue 2 prueba el 6 de abril al 5 de mayo de 2025, que incluye la parada de mantención de abril. Su entrenamiento, de octubre de 2024 a abril de 2025, no tiene ninguna parada, y el MAE de ese pliegue pasa de 32 MWh.</li>
+        <li><strong>Combinaciones que scikit-learn rechaza.</strong> Con ventana creciente, <span class="tex">K = 10</span> y <span class="tex">h = 180</span> no caben 1800 días de prueba en <span data-dato="n">1454</span>: la página muestra el <code>ValueError</code> de scikit-learn en lugar de los pliegues.</li>
+      </ul>
+    </section>
+
+    <section class="blk">
+      <h2 class="blk-h">Las matemáticas</h2>
+      <div class="eq-row">
+        <div class="eq"><span class="tex-d">\mathcal{V} = \big\{(E_k, P_k)\big\}_{k=1}^{K}, \qquad E_k \cap P_k = \varnothing</span></div>
+        <p class="eq-note">Los días de la historia son <span class="tex">t = 1,\dots,n</span>, con <span class="tex">n = </span><span data-dato="n">1454</span>: los <span data-dato="historia">1461</span> días de 2022 a 2025 menos los primeros <span data-dato="descartados">7</span>, que no tienen rezago de una semana. Un esquema de validación es una lista de pares de conjuntos disjuntos: entrenamiento <span class="tex">E_k</span> y prueba <span class="tex">P_k</span>.</p>
+      </div>
+      <div class="eq-row">
+        <div class="eq"><span class="tex-d">\max E_k &lt; \min P_k \quad \text{para todo } k</span></div>
+        <p class="eq-note">El esquema respeta el tiempo si, en cada pliegue, todo el entrenamiento es anterior a toda la prueba. Es la condición que cumple el uso real del modelo: el modelo se entrena con el pasado y pronostica días que todavía no ocurren.</p>
+      </div>
+      <div class="eq-row">
+        <div class="eq"><span class="tex-d">\widehat{R}_k = \frac{1}{|P_k|} \sum_{t \in P_k} \big| y_t - \hat f_k(x_t) \big|, \qquad \widehat{R} = \frac{1}{K} \sum_{k=1}^{K} \widehat{R}_k</span></div>
+        <p class="eq-note">El error de un pliegue es el MAE de <span class="tex">\hat f_k</span>, el modelo entrenado solo con <span class="tex">E_k</span>, sobre <span class="tex">P_k</span>. La estimación del esquema es el promedio de los <span class="tex">K</span> errores. En el escenario, las barras son <span class="tex">\widehat{R}_k</span> y la línea punteada es <span class="tex">\widehat{R}</span>.</p>
+      </div>
+      <div class="eq-row">
+        <div class="eq"><span class="tex-d">\lambda_k = \frac{\big|\{t \in P_k : t < \max E_k\}\big|}{|P_k|}, \qquad \lambda = \frac{1}{K} \sum_{k=1}^{K} \lambda_k</span></div>
+        <p class="eq-note">La fuga mide qué fracción de los días de prueba tiene algún día de entrenamiento posterior: días del futuro que el modelo vio. Como <span class="tex">E_k</span> y <span class="tex">P_k</span> son disjuntos, <span class="tex">\lambda = 0</span> equivale a respetar el tiempo. En las filas del escenario, esos días van en rosa.</p>
+      </div>
+      <div class="eq-row">
+        <div class="eq"><span class="tex-d">R_{2026} = \frac{1}{365} \sum_{t \in 2026} \big| y_t - \hat f(x_t) \big|, \qquad \hat f \text{ entrenada con los } n \text{ días}</span></div>
+        <p class="eq-note">El error real: el MAE en 2026 del modelo entrenado con toda la historia, con los rezagos de enero calculados sobre diciembre de 2025. Es la línea rosa. Un buen esquema tiene <span class="tex">\widehat{R}</span> cerca de <span class="tex">R_{2026}</span>; uno que promete <span class="tex">\widehat{R} &lt; R_{2026}</span> engaña a quien lo usa para decidir.</p>
+      </div>
+      <div class="eq-row">
+        <div class="eq"><span class="tex-d">x_{t+1}^{\text{ayer}} = y_t, \qquad x_{t+7}^{\text{semana}} = y_t</span></div>
+        <p class="eq-note">Una vía de la fuga en este modelo. El consumo del día <span class="tex">t</span> aparece como variable en las filas de los días <span class="tex">t+1</span> y <span class="tex">t+7</span>. Si <span class="tex">t</span> es de prueba y esas filas son de entrenamiento, la respuesta que se quiere pronosticar ya está dentro de los datos con que se entrenó.</p>
+      </div>
+    </section>
+
+    <section class="blk">
+      <h2 class="blk-h">Cómo está construido</h2>
+      <p class="blk-p">Los errores de la página no se calculan aquí: <code>datos/generar_datos.py</code> entrenó el modelo de la lección, un <code>RandomForestRegressor(n_estimators=200, random_state=0)</code>, una vez por pliegue de cada configuración de una rejilla, 558 entrenamientos en total. La rejilla es la que muestran los controles. Aleatorio: <span class="tex">K</span> en 3, 5 y 10. Holdout: <span class="tex">h</span> en 30, 90, 180 y 365, y <span class="tex">g</span> en 0, 7 y 30. Origen móvil: <span class="tex">K</span> en 3, 5 y 10, <span class="tex">h</span> en 30, 90 y 180, y <span class="tex">g</span> en 0, 7 y 30. Ventana deslizante: lo mismo, con <span class="tex">w</span> en 180, 365 y 730. Las combinaciones que scikit-learn rechaza no se entrenan: son 111 configuraciones en total.</p>
+      <p class="blk-p">Lo que sí corre en la página es la lógica de los esquemas, escrita en JavaScript en <code>logica/validacion.js</code>: los pliegues de <code>TimeSeriesSplit</code> y del holdout, los errores de scikit-learn y la fuga. La asignación de <code>KFold</code> con mezcla viene de Python, porque el generador de numpy no se replica en JavaScript.</p>
+      <p class="blk-p">Para comprobar la lógica, <code>pruebas/generar_casos.py</code> corre scikit-learn 1.5.2 en 4050 combinaciones de <span class="tex">n</span>, <span class="tex">K</span>, <span class="tex">h</span>, <span class="tex">g</span> y <span class="tex">w</span>, con <code>n</code> desde 2 hasta 1454, y guarda cada par de intervalos o cada <code>ValueError</code>. La prueba de Node exige los mismos pliegues, el mismo mensaje de error y la misma fuga. Hace lo mismo con 40 holdouts, contra <code>train_test_split(shuffle=False)</code>, y con 12 asignaciones de <code>KFold</code>. Además, vuelve a entrenar ocho configuraciones desde cero, con los pliegues armados aparte, y exige que sus MAE sean los que muestra la página.</p>
+      <p class="blk-p">El navegador no carga esos módulos uno por uno, sino <code>paquetes/validacion.js</code>, un solo archivo armado desde ellos. Así la página funciona también abierta como archivo, sin servidor. Si KaTeX no carga por falta de conexión, las fórmulas se ven como texto.</p>
+    </section>
+
+    <section class="blk">
+      <h2 class="blk-h">El código, paso a paso</h2>
+      <p class="blk-p">En cada paso, arriba va el código de Python que calculó los datos y abajo la parte de la simulación que hace lo mismo.</p>
+
+      <div class="step">
+        <div class="step-head"><span class="step-n">01</span><h3 class="step-t">Los pliegues de un origen móvil</h3></div>
+        <div class="lang"><span>Python · scikit-learn</span><button class="copy" type="button">Copiar</button></div>
+        <pre class="code" data-fuente="complementarios/datos/generar_datos.py"><code>validacion = TimeSeriesSplit(
+    n_splits=K, test_size=h, gap=g, max_train_size=w
+)
+pares = list(validacion.split(np.arange(n)))</code></pre>
+        <div class="lang"><span>JavaScript · logica/validacion.js</span><button class="copy" type="button">Copiar</button></div>
+        <pre class="code" data-fuente="complementarios/logica/validacion.js"><code>for (let inicio = n - K * prueba; inicio &lt; n; inicio += prueba) {
+  const finEntrenamiento = inicio - g;
+  const desde = w &amp;&amp; w &lt; finEntrenamiento ? finEntrenamiento - w : 0;
+  pliegues.push({ entrenamiento: rango(desde, finEntrenamiento), prueba: rango(inicio, inicio + prueba) });
+}</code></pre>
+        <p class="step-x">Los <span class="tex">K</span> bloques de prueba son consecutivos y terminan en el último día. En cada uno, el entrenamiento termina <span class="tex">g</span> días antes y empieza en el día 1, o <span class="tex">w</span> días antes del final si hay ventana. Las posiciones van de 0 a <span class="tex">n - 1</span>, como en scikit-learn.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-n">02</span><h3 class="step-t">El error de cada pliegue y el del esquema</h3></div>
+        <div class="lang"><span>Python · scikit-learn</span><button class="copy" type="button">Copiar</button></div>
+        <pre class="code" data-fuente="complementarios/datos/generar_datos.py"><code>for entrenamiento, prueba in pares:
+    modelo = RandomForestRegressor(n_estimators=200, random_state=0, n_jobs=-1)
+    modelo.fit(X.iloc[entrenamiento], y.iloc[entrenamiento])
+    predicho = modelo.predict(X.iloc[prueba])
+    maes.append(mean_absolute_error(y.iloc[prueba], predicho))</code></pre>
+        <div class="lang"><span>JavaScript · logica/validacion.js</span><button class="copy" type="button">Copiar</button></div>
+        <pre class="code" data-fuente="complementarios/logica/validacion.js"><code>const maes = datos.mae[claveRejilla(esquema, parametros)];
+return {
+  pliegues: pares,
+  maes,
+  estimacion: maes ? media(maes) : null,</code></pre>
+        <p class="step-x">La página no entrena: busca en la rejilla los <span class="tex">\widehat{R}_k</span> de la configuración, con la misma clave que usó Python, y promedia. Un modelo nuevo por pliegue es lo que hace que <span class="tex">\hat f_k</span> solo conozca <span class="tex">E_k</span>.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-n">03</span><h3 class="step-t">La fuga</h3></div>
+        <div class="lang"><span>Python · pruebas/generar_casos.py</span><button class="copy" type="button">Copiar</button></div>
+        <pre class="code" data-fuente="complementarios/pruebas/generar_casos.py"><code>return float(np.mean(prueba &lt; entrenamiento.max()))</code></pre>
+        <div class="lang"><span>JavaScript · logica/validacion.js</span><button class="copy" type="button">Copiar</button></div>
+        <pre class="code" data-fuente="complementarios/logica/validacion.js"><code>const ultimo = pliegue.entrenamiento.length ? pliegue.entrenamiento[pliegue.entrenamiento.length - 1] : -1;
+return pliegue.prueba.filter((t) =&gt; t &lt; ultimo);</code></pre>
+        <p class="step-x">Un día de prueba tiene fuga si es anterior al último día de entrenamiento. El resto de la medida es dividir por el tamaño de la prueba y promediar los pliegues. En el escenario, esos días van en rosa.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-n">04</span><h3 class="step-t">El error real en 2026</h3></div>
+        <div class="lang"><span>Python · datos/generar_datos.py</span><button class="copy" type="button">Copiar</button></div>
+        <pre class="code" data-fuente="complementarios/datos/generar_datos.py"><code>modelo = RandomForestRegressor(n_estimators=200, random_state=0, n_jobs=-1)
+modelo.fit(X, y)
+return mean_absolute_error(y26, modelo.predict(X26))</code></pre>
+        <p class="step-x">Un solo modelo, entrenado con los <span data-dato="n">1454</span> días de la historia, y probado en los 365 de 2026. Los rezagos de enero de 2026 se calculan sobre la serie completa, así que usan diciembre de 2025, como los usaría la planta. Este número no depende del esquema: es la línea rosa de todas las comparaciones.</p>
+      </div>
+    </section>
+
+    <section class="blk">
+      <h2 class="blk-h">Por qué importa</h2>
+      <p class="blk-p">Un error de validación se usa para decidir: si el modelo sirve, si supera al anterior, si vale la pena ponerlo en producción. Una estimación optimista, como la del esquema aleatorio, aprueba modelos que después decepcionan, y no hay forma de enterarse hasta que corren con datos nuevos.</p>
+      <p class="blk-p">Por eso la validación de una serie de tiempo imita el uso real: entrenar con el pasado y probar en lo que viene. La fuga se mide, no se supone, y en MLOps esa misma comparación entre lo que se prometió y lo que se entrega es la que más adelante vigila el modelo en producción.</p>
+    </section>
+  </main>
+
+  <nav class="pager" aria-label="Simulaciones">
+    <a href="./">← Complementarios</a>
+    <span class="void">Drift y PSI · próximamente</span>
+  </nav>
+</div>
+</body>
+</html>
