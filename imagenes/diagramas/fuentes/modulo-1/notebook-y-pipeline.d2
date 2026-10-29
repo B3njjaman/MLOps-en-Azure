@@ -1,0 +1,128 @@
+# Lección 1. El notebook frente al pipeline al que apunta el módulo.
+# A la izquierda, celdas ejecutadas fuera de orden; a la derecha, los pasos de un pipeline, cada uno con la lección que lo construye.
+# intervalo: 2200
+...@../estilo
+
+vars: {d2-config: {layout-engine: elk}}
+
+classes: {
+  celda: {
+    width: 300
+    height: 32
+    style: {fill: ${nodo}; stroke: ${borde}; stroke-width: 1; border-radius: 6; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  celda-activa: {
+    width: 300
+    height: 32
+    style: {fill: ${rosa-suave}; stroke: ${rosa}; stroke-width: 2; border-radius: 6; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  paso-p: {
+    width: 230
+    height: 40
+    style: {fill: ${nodo}; stroke: ${borde-nodo}; stroke-width: 2; border-radius: 10; font: mono; font-size: 15; font-color: ${tinta}}
+  }
+  paso-p-activo: {
+    width: 230
+    height: 40
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 3; border-radius: 10; font: mono; font-size: 15; font-color: ${tinta}}
+  }
+  datos: {
+    shape: cylinder
+    width: 230
+    height: 84
+    style: {fill: ${celeste-suave}; stroke: ${celeste}; stroke-width: 2; font: mono; font-size: 14; font-color: ${tinta}}
+  }
+  registro: {
+    shape: stored_data
+    width: 230
+    height: 48
+    style: {fill: ${violeta-suave}; stroke: ${violeta}; stroke-width: 2; font: mono; font-size: 14; font-color: ${tinta}}
+  }
+}
+
+grid-columns: 1
+grid-gap: 14
+
+arriba: {
+  class: invisible
+  grid-columns: 2
+  grid-gap: 28
+
+  notebook: "notebook" {
+    class: panel
+    label.near: top-center
+    grid-columns: 1
+    grid-gap: 6
+
+    c1: "[3]  df = pd.read_csv(...)" {class: celda}
+    c2: "[7]  X = armar_features(df)" {class: celda}
+    c3: "[5]  train_test_split(X, y)" {class: celda}
+    c4: "[8]  modelo.fit(X_ent, y_ent)" {class: celda}
+    c5: "[6]  plt.plot(...)" {class: celda}
+    c6: "[9]  mean_absolute_error(...)" {class: celda}
+  }
+
+  pipeline: "pipeline" {
+    class: panel
+    label.near: top-center
+    grid-columns: 1
+    grid-gap: 16
+
+    d: "datos  v3" {class: datos}
+    v: "validar  · lección 5" {class: paso-p}
+    f: "features  · lección 4" {class: paso-p}
+    e: "entrenar  · lección 2" {class: paso-p}
+    m: "evaluar  · lección 3" {class: paso-p}
+    r: "modelo  v7  · módulo 2" {class: registro}
+
+    d -> v {class: arista}
+    v -> f {class: arista}
+    f -> e {class: arista}
+    e -> m {class: arista}
+    m -> r {class: arista}
+  }
+}
+
+explica: "Lo mismo, dos formas: celdas que alguien corrió en algún orden, o pasos que corren siempre igual." {class: paso; width: 760; height: 44}
+
+steps: {
+  1: {
+    arriba.notebook.c2.class: celda-activa
+    arriba.notebook.c3.class: celda-activa
+    explica.label: "Los números entre corchetes dicen el orden real: la celda 7 corrió después de la 5. Nadie más puede repetirlo."
+  }
+  2: {
+    arriba.notebook.c2.class: celda
+    arriba.notebook.c3.class: celda
+    arriba.pipeline.v.class: paso-p-activo
+    arriba.pipeline.(d -> v)[0].class: recorrida
+    explica.label: "El pipeline parte por una versión fija de los datos y los valida antes de usarlos."
+  }
+  3: {
+    arriba.pipeline.v.class: paso-p
+    arriba.pipeline.f.class: paso-p-activo
+    arriba.pipeline.(d -> v)[0].class: arista
+    arriba.pipeline.(v -> f)[0].class: recorrida
+    explica.label: "Las features salen de una sola función, la misma que se usará al pronosticar."
+  }
+  4: {
+    arriba.pipeline.f.class: paso-p
+    arriba.pipeline.e.class: paso-p-activo
+    arriba.pipeline.(v -> f)[0].class: arista
+    arriba.pipeline.(f -> e)[0].class: recorrida
+    explica.label: "El entrenamiento fija sus semillas y versiones: dos corridas dan el mismo modelo."
+  }
+  5: {
+    arriba.pipeline.e.class: paso-p
+    arriba.pipeline.m.class: paso-p-activo
+    arriba.pipeline.(f -> e)[0].class: arista
+    arriba.pipeline.(e -> m)[0].class: recorrida
+    explica.label: "La evaluación imita el uso real: entrena con el pasado y prueba con el futuro."
+  }
+  6: {
+    arriba.pipeline.m.class: paso-p
+    arriba.pipeline.(e -> m)[0].class: arista
+    arriba.pipeline.(m -> r)[0].class: recorrida
+    explica.label: "Y el modelo queda registrado con su versión, sus datos y sus métricas."
+  }
+}

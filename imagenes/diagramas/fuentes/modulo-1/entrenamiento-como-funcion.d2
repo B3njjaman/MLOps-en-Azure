@@ -1,0 +1,95 @@
+# Lección 2. El entrenamiento como función de cuatro entradas: f, ficha = A(D, θ, s, E).
+# Cada entrada lleva lo que la identifica (huella, archivo, semillas, versiones); salen el modelo y su ficha.
+# intervalo: 2400
+...@../estilo
+
+vars: {d2-config: {layout-engine: elk}}
+
+classes: {
+  entrada: {
+    width: 300
+    height: 56
+    style: {fill: ${nodo}; stroke: ${borde}; stroke-width: 1; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tenue}}
+  }
+  entrada-activa: {
+    width: 300
+    height: 56
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 2; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  funcion: {
+    width: 220
+    height: 120
+    style: {fill: ${nodo}; stroke: ${borde-nodo}; stroke-width: 2; border-radius: 12; font: mono; font-size: 16; font-color: ${tenue}}
+  }
+  funcion-activa: {
+    width: 220
+    height: 120
+    style: {fill: ${violeta-suave}; stroke: ${violeta}; stroke-width: 3; border-radius: 12; font: mono; font-size: 16; font-color: ${tinta}}
+  }
+  salida: {
+    width: 260
+    height: 56
+    style: {fill: ${nodo}; stroke: ${borde}; stroke-width: 1; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tenue}}
+  }
+  salida-activa: {
+    width: 260
+    height: 56
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 2; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+}
+
+grid-columns: 1
+grid-gap: 14
+
+fila: {
+  class: invisible
+  direction: right
+
+  d: "D  datos\nhuella SHA-256" {class: entrada}
+  c: "θ  configuración\nconfig_entrenamiento.json" {class: entrada}
+  s: "s  semillas\npartición y modelo" {class: entrada}
+  e: "E  entorno\nrequirements.txt, plataforma" {class: entrada}
+  a: "A\nentrenar(config, df)" {class: funcion}
+  m: "modelo  f\nhuella de sus predicciones" {class: salida}
+  k: "ficha\nJSON con las cuatro huellas" {class: salida}
+
+  d -> a {class: arista}
+  c -> a {class: arista}
+  s -> a {class: arista}
+  e -> a {class: arista}
+  a -> m {class: arista}
+  a -> k {class: arista}
+}
+
+explica: "f, ficha = A(D, θ, s, E). El modelo es función de cuatro entradas." {class: paso; width: 760; height: 44}
+
+steps: {
+  1: {
+    fila.d.class: entrada-activa
+    explica.label: "Los datos entran con su huella: el mismo contenido, en el mismo orden, da la misma huella."
+  }
+  2: {
+    fila.c.class: entrada-activa
+    fila.s.class: entrada-activa
+    explica.label: "La configuración y las semillas viven en un archivo, no en las celdas."
+  }
+  3: {
+    fila.e.class: entrada-activa
+    explica.label: "El entorno son las versiones exactas de Python y de las bibliotecas, y la plataforma."
+  }
+  4: {
+    fila.a.class: funcion-activa
+    fila.(d -> a)[0].class: recorrida
+    fila.(c -> a)[0].class: recorrida
+    fila.(s -> a)[0].class: recorrida
+    fila.(e -> a)[0].class: recorrida
+    explica.label: "Con las cuatro entradas fijas, el entrenamiento es una función: sin sorpresas."
+  }
+  5: {
+    fila.m.class: salida-activa
+    fila.k.class: salida-activa
+    fila.(a -> m)[0].class: recorrida
+    fila.(a -> k)[0].class: recorrida
+    explica.label: "Sale el modelo y su ficha, que dice con qué se entrenó. Dos corridas dan la misma ficha."
+  }
+}

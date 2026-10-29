@@ -1,0 +1,159 @@
+# Lección 1. Partición aleatoria frente a temporal sobre quince días seguidos.
+# En la aleatoria, el día de prueba 8 queda entre los días 7 y 9, que son de entrenamiento: el modelo vio el día siguiente.
+# intervalo: 2400
+...@../estilo
+
+vars: {d2-config: {layout-engine: elk}}
+
+classes: {
+  dia: {
+    width: 34
+    height: 34
+    style: {fill: ${nodo}; stroke: ${borde}; stroke-width: 1; border-radius: 6; font: mono; font-size: 12; bold: false; font-color: ${tenue}}
+  }
+  ent: {
+    width: 34
+    height: 34
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 1; border-radius: 6; font: mono; font-size: 12; bold: false; font-color: ${tinta}}
+  }
+  pru: {
+    width: 34
+    height: 34
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 1; border-radius: 6; font: mono; font-size: 12; bold: false; font-color: ${tinta}}
+  }
+  pru-foco: {
+    width: 34
+    height: 34
+    style: {fill: ${ambar-suave}; stroke: ${rosa}; stroke-width: 3; border-radius: 6; font: mono; font-size: 12; bold: true; font-color: ${tinta}}
+  }
+  ent-foco: {
+    width: 34
+    height: 34
+    style: {fill: ${turquesa-suave}; stroke: ${rosa}; stroke-width: 3; border-radius: 6; font: mono; font-size: 12; bold: true; font-color: ${tinta}}
+  }
+  rotulo: {
+    shape: text
+    width: 110
+    style: {font: mono; font-size: 14; font-color: ${suave}}
+  }
+  ley-ent: {
+    width: 150
+    height: 28
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 1; border-radius: 6; font: mono; font-size: 13; bold: false; font-color: ${tinta}}
+  }
+  ley-pru: {
+    width: 150
+    height: 28
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 1; border-radius: 6; font: mono; font-size: 13; bold: false; font-color: ${tinta}}
+  }
+}
+
+grid-columns: 1
+grid-gap: 16
+
+leyenda: {
+  class: invisible
+  grid-columns: 2
+  grid-gap: 12
+  e: "entrenamiento" {class: ley-ent}
+  p: "prueba" {class: ley-pru}
+}
+
+aleatoria: {
+  class: invisible
+  grid-columns: 16
+  grid-gap: 6
+
+  r: "aleatoria" {class: rotulo}
+  d1: "1" {class: dia}
+  d2: "2" {class: dia}
+  d3: "3" {class: dia}
+  d4: "4" {class: dia}
+  d5: "5" {class: dia}
+  d6: "6" {class: dia}
+  d7: "7" {class: dia}
+  d8: "8" {class: dia}
+  d9: "9" {class: dia}
+  d10: "10" {class: dia}
+  d11: "11" {class: dia}
+  d12: "12" {class: dia}
+  d13: "13" {class: dia}
+  d14: "14" {class: dia}
+  d15: "15" {class: dia}
+}
+
+temporal: {
+  class: invisible
+  grid-columns: 16
+  grid-gap: 6
+
+  r: "temporal" {class: rotulo}
+  d1: "1" {class: dia}
+  d2: "2" {class: dia}
+  d3: "3" {class: dia}
+  d4: "4" {class: dia}
+  d5: "5" {class: dia}
+  d6: "6" {class: dia}
+  d7: "7" {class: dia}
+  d8: "8" {class: dia}
+  d9: "9" {class: dia}
+  d10: "10" {class: dia}
+  d11: "11" {class: dia}
+  d12: "12" {class: dia}
+  d13: "13" {class: dia}
+  d14: "14" {class: dia}
+  d15: "15" {class: dia}
+}
+
+explica: "Quince días seguidos de la historia de la planta." {class: paso; width: 720; height: 44}
+
+steps: {
+  1: {
+    aleatoria.d1.class: ent
+    aleatoria.d2.class: ent
+    aleatoria.d3.class: pru
+    aleatoria.d4.class: ent
+    aleatoria.d5.class: ent
+    aleatoria.d6.class: ent
+    aleatoria.d7.class: ent
+    aleatoria.d8.class: pru
+    aleatoria.d9.class: ent
+    aleatoria.d10.class: ent
+    aleatoria.d11.class: ent
+    aleatoria.d12.class: pru
+    aleatoria.d13.class: ent
+    aleatoria.d14.class: ent
+    aleatoria.d15.class: ent
+    explica.label: "Al azar, los días de prueba quedan salpicados entre los de entrenamiento."
+  }
+  2: {
+    aleatoria.d7.class: ent-foco
+    aleatoria.d8.class: pru-foco
+    aleatoria.d9.class: ent-foco
+    explica.label: "El día 8 es de prueba, pero el modelo entrenó con el 7 y con el 9: vio el día siguiente."
+  }
+  3: {
+    temporal.d1.class: ent
+    temporal.d2.class: ent
+    temporal.d3.class: ent
+    temporal.d4.class: ent
+    temporal.d5.class: ent
+    temporal.d6.class: ent
+    temporal.d7.class: ent
+    temporal.d8.class: ent
+    temporal.d9.class: ent
+    temporal.d10.class: ent
+    temporal.d11.class: ent
+    temporal.d12.class: ent
+    temporal.d13.class: pru
+    temporal.d14.class: pru
+    temporal.d15.class: pru
+    explica.label: "En orden: se entrena con el pasado y se prueba con lo que viene después, como en producción."
+  }
+  4: {
+    aleatoria.d7.class: ent
+    aleatoria.d8.class: pru
+    aleatoria.d9.class: ent
+    explica.label: "Con la historia de la planta, la aleatoria promete MAE 6,1 y la temporal mide 8,1."
+  }
+}
