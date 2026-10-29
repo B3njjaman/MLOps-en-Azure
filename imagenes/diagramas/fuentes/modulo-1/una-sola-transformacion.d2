@@ -1,0 +1,138 @@
+# Lección 4. Una sola transformación: el entrenamiento y las 06:00 pasan por la misma armar_features.
+# Primero se enciende el camino del entrenamiento, después el de las 06:00, y al final la función compartida.
+# intervalo: 2600
+...@../estilo
+
+vars: {d2-config: {layout-engine: elk}}
+
+classes: {
+  dato: {
+    width: 230
+    height: 56
+    style: {fill: ${nodo}; stroke: ${borde}; stroke-width: 1; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tenue}}
+  }
+  dato-ent: {
+    width: 230
+    height: 56
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 2; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  dato-06: {
+    width: 230
+    height: 56
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 2; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  funcion: {
+    width: 250
+    height: 76
+    style: {fill: ${nodo}; stroke: ${borde-nodo}; stroke-width: 2; border-radius: 10; font: mono; font-size: 15; font-color: ${tinta}}
+  }
+  funcion-activa: {
+    width: 250
+    height: 76
+    style: {fill: ${violeta-suave}; stroke: ${violeta}; stroke-width: 3; border-radius: 10; font: mono; font-size: 15; font-color: ${tinta}}
+  }
+  accion: {
+    width: 230
+    height: 56
+    style: {fill: ${nodo}; stroke: ${borde-nodo}; stroke-width: 2; border-radius: 10; font: mono; font-size: 14; font-color: ${tinta}}
+  }
+  accion-ent: {
+    width: 230
+    height: 56
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 3; border-radius: 10; font: mono; font-size: 14; font-color: ${tinta}}
+  }
+  accion-06: {
+    width: 230
+    height: 56
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 3; border-radius: 10; font: mono; font-size: 14; font-color: ${tinta}}
+  }
+  archivo: {
+    shape: stored_data
+    width: 200
+    height: 56
+    style: {fill: ${nodo}; stroke: ${borde-nodo}; stroke-width: 2; font: mono; font-size: 14; font-color: ${tinta}}
+  }
+  archivo-activo: {
+    shape: stored_data
+    width: 200
+    height: 56
+    style: {fill: ${violeta-suave}; stroke: ${violeta}; stroke-width: 3; font: mono; font-size: 14; font-color: ${tinta}}
+  }
+}
+
+grid-columns: 1
+grid-gap: 16
+
+flujo: {
+  class: invisible
+  grid-columns: 4
+  grid-gap: 34
+
+  hist: "historia 2022-2025\ntabla con todos los días" {class: dato}
+  hoy: "las 06:00 del día t\ntabla hasta t, sin y(t)" {class: dato}
+  phi1: "armar_features(tabla)\nx(t) = φ(tabla)(t)" {class: funcion}
+  phi2: "armar_features(tabla)\nx(t) = φ(tabla)(t)" {class: funcion}
+  fit: "fit(X, y)" {class: accion}
+  pred: "ŷ(t) = predict(x(t))" {class: accion}
+  art: "artefacto.joblib\ncolumnas + bosque" {class: archivo}
+  vacio: "" {class: invisible; width: 200; height: 56}
+
+  hist -> phi1 {class: arista}
+  phi1 -> fit: "X" {class: arista}
+  fit -> art {class: arista}
+  hoy -> phi2 {class: arista}
+  phi2 -> pred: "x(t)" {class: arista}
+  art -> pred: "carga" {class: condicional}
+  phi1 -> phi2: "el mismo código" {class: condicional}
+}
+
+explica: "Una función, dos momentos. Si es la misma y solo usa lo que existe a las 06:00, el x(t) es el mismo." {class: paso; width: 860; height: 44}
+
+steps: {
+  1: {
+    flujo.hist.class: dato-ent
+    flujo.(hist -> phi1)[0].class: recorrida
+    flujo.phi1.class: funcion-activa
+    flujo.(phi1 -> fit)[0].class: recorrida
+    flujo.fit.class: accion-ent
+    explica.label: "Al entrenar, la historia pasa por armar_features y el bosque aprende con ese X."
+  }
+  2: {
+    flujo.hist.class: dato
+    flujo.(hist -> phi1)[0].class: arista
+    flujo.phi1.class: funcion
+    flujo.(phi1 -> fit)[0].class: arista
+    flujo.fit.class: accion
+    flujo.(fit -> art)[0].class: recorrida
+    flujo.art.class: archivo-activo
+    explica.label: "Lo aprendido (el codificador del día y el bosque) se guarda en un solo archivo."
+  }
+  3: {
+    flujo.art.class: archivo
+    flujo.(fit -> art)[0].class: arista
+    flujo.hoy.class: dato-06
+    flujo.(hoy -> phi2)[0].class: recorrida
+    flujo.phi2.class: funcion-activa
+    flujo.(phi2 -> pred)[0].class: recorrida
+    explica.label: "A las 06:00 la tabla llega hasta hoy, sin el consumo de hoy, y pasa por la misma función."
+  }
+  4: {
+    flujo.hoy.class: dato
+    flujo.(hoy -> phi2)[0].class: arista
+    flujo.phi2.class: funcion
+    flujo.(phi2 -> pred)[0].class: arista
+    flujo.(art -> pred)[0].class: recorrida
+    flujo.art.class: archivo-activo
+    flujo.pred.class: accion-06
+    explica.label: "El artefacto cargado pronostica sobre x(t) y entrega el ŷ(t) de las 06:00."
+  }
+  5: {
+    flujo.art.class: archivo
+    flujo.(art -> pred)[0].class: condicional
+    flujo.pred.class: accion
+    flujo.phi1.class: funcion-activa
+    flujo.phi2.class: funcion-activa
+    flujo.(phi1 -> phi2)[0].class: recorrida
+    explica.label: "Las dos son la misma armar_features: un solo código, un solo lugar donde corregir."
+  }
+}
