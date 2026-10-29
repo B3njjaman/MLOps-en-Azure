@@ -1,0 +1,105 @@
+# Lección 1. Qué se sabe a las 06:00: el pronóstico del día t solo puede usar lo que ya existe a esa hora.
+# Cada paso enciende lo que se conoce en ese momento; la temperatura real y el consumo del día llegan a las 24:00.
+# intervalo: 2400
+...@../estilo
+
+vars: {d2-config: {layout-engine: elk}}
+
+classes: {
+  dato: {
+    width: 270
+    height: 38
+    style: {fill: ${nodo}; stroke: ${borde}; stroke-width: 1; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tenue}}
+  }
+  conocido: {
+    width: 270
+    height: 38
+    style: {fill: ${turquesa-suave}; stroke: ${turquesa}; stroke-width: 2; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  llega: {
+    width: 270
+    height: 38
+    style: {fill: ${ambar-suave}; stroke: ${ambar}; stroke-width: 2; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+  modelo: {
+    width: 270
+    height: 38
+    style: {fill: ${nodo}; stroke: ${borde-nodo}; stroke-width: 2; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tenue}}
+  }
+  modelo-activo: {
+    width: 270
+    height: 38
+    style: {fill: ${violeta-suave}; stroke: ${violeta}; stroke-width: 3; border-radius: 8; font: mono; font-size: 14; bold: false; font-color: ${tinta}}
+  }
+}
+
+grid-columns: 1
+grid-gap: 14
+
+dia: {
+  class: invisible
+  grid-columns: 3
+  grid-gap: 18
+
+  antes: "hasta ayer" {
+    class: panel
+    label.near: top-center
+    grid-columns: 1
+    grid-gap: 8
+
+    y7: "consumo hace 7 días  y(t−7)" {class: dato}
+    y1: "consumo de ayer  y(t−1)" {class: dato}
+    tp: "pronóstico de temperatura" {class: dato}
+  }
+
+  manana: "hoy, 06:00" {
+    class: panel
+    label.near: top-center
+    grid-columns: 1
+    grid-gap: 8
+
+    p: "producción planificada  p(t)" {class: dato}
+    c: "calendario  día de la semana" {class: dato}
+    f: "pronóstico  ŷ(t) = f(x(t))" {class: modelo}
+  }
+
+  noche: "hoy, 24:00" {
+    class: panel
+    label.near: top-center
+    grid-columns: 1
+    grid-gap: 8
+
+    tr: "temperatura real  τ(t)" {class: dato}
+    y: "consumo real  y(t)" {class: dato}
+    e: "error del día  |y(t) − ŷ(t)|" {class: dato}
+  }
+}
+
+explica: "El día t. ¿Qué datos existen cuando hay que pronosticar?" {class: paso; width: 860; height: 44}
+
+steps: {
+  1: {
+    dia.antes.y7.class: conocido
+    dia.antes.y1.class: conocido
+    dia.antes.tp.class: conocido
+    explica.label: "Al empezar el día ya se conocen el consumo de los días cerrados y el pronóstico del clima."
+  }
+  2: {
+    dia.manana.p.class: conocido
+    dia.manana.c.class: conocido
+    explica.label: "El plan de producción y el calendario también se saben de antemano."
+  }
+  3: {
+    dia.manana.f.class: modelo-activo
+    explica.label: "A las 06:00 el modelo pronostica con esos datos y nada más: x(t) solo usa lo encendido."
+  }
+  4: {
+    dia.noche.tr.class: llega
+    dia.noche.y.class: llega
+    explica.label: "La temperatura real y el consumo del día recién se conocen a las 24:00."
+  }
+  5: {
+    dia.noche.e.class: llega
+    explica.label: "Entonces se mide el error. Un modelo que entrena con τ(t) usa un dato que a las 06:00 no existe."
+  }
+}

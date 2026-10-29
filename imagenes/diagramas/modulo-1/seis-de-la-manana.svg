@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" d2Version="v0.9.0" preserveAspectRatio="xMinYMin meet" viewBox="0 0 986 315" width="986" height="315"><style>
+[fill="#0a0b01" i]{fill:#ffffff !important}
+[stroke="#0a0b01" i]{stroke:#ffffff !important}
+[fill="#0a0b02" i]{fill:#f6f8fa !important}
+[stroke="#0a0b02" i]{stroke:#f6f8fa !important}
+[fill="#0a0b03" i]{fill:#d0d7de !important}
+[stroke="#0a0b03" i]{stroke:#d0d7de !important}
+[fill="#0a0b04" i]{fill:#1f2328 !important}
+[stroke="#0a0b04" i]{stroke:#1f2328 !important}
+[fill="#0a0b05" i]{fill:#57606a !important}
+[stroke="#0a0b05" i]{stroke:#57606a !important}
+[fill="#0a0b06" i]{fill:#8c959f !important}
+[stroke="#0a0b06" i]{stroke:#8c959f !important}
+[fill="#0a0b07" i]{fill:#ffffff !important}
+[stroke="#0a0b07" i]{stroke:#ffffff !important}
+[fill="#0a0b08" i]{fill:#aab6c5 !important}
+[stroke="#0a0b08" i]{stroke:#aab6c5 !important}
+[fill="#0a0b09" i]{fill:#8c9bb0 !important}
+[stroke="#0a0b09" i]{stroke:#8c9bb0 !important}
+[fill="#0a0c01" i]{fill:#0d9488 !important}
+[stroke="#0a0c01" i]{stroke:#0d9488 !important}
+[fill="#0a0c02" i]{fill:#ccfbf1 !important}
+[stroke="#0a0c02" i]{stroke:#ccfbf1 !important}
+[fill="#0a0c03" i]{fill:#7c3aed !important}
+[stroke="#0a0c03" i]{stroke:#7c3aed !important}
+[fill="#0a0c04" i]{fill:#ede9fe !important}
+[stroke="#0a0c04" i]{stroke:#ede9fe !important}
+[fill="#0a0c05" i]{fill:#d97706 !important}
+[stroke="#0a0c05" i]{stroke:#d97706 !important}
+[fill="#0a0c06" i]{fill:#fef3c7 !important}
+[stroke="#0a0c06" i]{stroke:#fef3c7 !important}
+[fill="#0a0c07" i]{fill:#e11d48 !important}
+[stroke="#0a0c07" i]{stroke:#e11d48 !important}
+[fill="#0a0c08" i]{fill:#ffe4e6 !important}
+[stroke="#0a0c08" i]{stroke:#ffe4e6 !important}
+[fill="#0a0c09" i]{fill:#0284c7 !important}
+[stroke="#0a0c09" i]{stroke:#0284c7 !important}
+[fill="#0a0c10" i]{fill:#e0f2fe !important}
+[stroke="#0a0c10" i]{stroke:#e0f2fe !important}
+[fill="#0a0c11" i]{fill:#16a34a !important}
+[stroke="#0a0c11" i]{stroke:#16a34a !important}
+[fill="#0a0c12" i]{fill:#dcfce7 !important}
+[stroke="#0a0c12" i]{stroke:#dcfce7 !important}
+.fill-N1{fill:#1f2328 !important}
+.stroke-N1{stroke:#1f2328 !important}
+.color-N1{color:#1f2328 !important}
+.fill-N2{fill:#57606a !important}
+.stroke-N2{stroke:#57606a !important}
+.color-N2{color:#57606a !important}
+.fill-N7{fill:#ffffff !important}
+.stroke-N7{stroke:#ffffff !important}
+.color-N7{color:#ffffff !important}
+@media (prefers-color-scheme: dark) {
+[fill="#0a0b01" i]{fill:#0b1120 !important}
+[stroke="#0a0b01" i]{stroke:#0b1120 !important}
+[fill="#0a0b02" i]{fill:#111a2c !important}
+[stroke="#0a0b02" i]{stroke:#111a2c !important}
+[fill="#0a0b03" i]{fill:#26324a !important}
+[stroke="#0a0b03" i]{stroke:#26324a !important}
+[fill="#0a0b04" i]{fill:#e6edf3 !important}
+[stroke="#0a0b04" i]{stroke:#e6edf3 !important}
+[fill="#0a0b05" i]{fill:#9aa7b8 !important}
+[stroke="#0a0b05" i]{stroke:#9aa7b8 !important}
+[fill="#0a0b06" i]{fill:#64748b !important}
+[stroke="#0a0b06" i]{stroke:#64748b !important}
+[fill="#0a0b07" i]{fill:#0e1626 !important}
+[stroke="#0a0b07" i]{stroke:#0e1626 !important}
+[fill="#0a0b08" i]{fill:#3b4d6b !important}
+[stroke="#0a0b08" i]{stroke:#3b4d6b !important}
+[fill="#0a0b09" i]{fill:#52668a !important}
+[stroke="#0a0b09" i]{stroke:#52668a !important}
+[fill="#0a0c01" i]{fill:#2dd4bf !important}
+[stroke="#0a0c01" i]{stroke:#2dd4bf !important}
+[fill="#0a0c02" i]{fill:#0f3a3a !important}
+[stroke="#0a0c02" i]{stroke:#0f3a3a !important}
+[fill="#0a0c03" i]{fill:#a78bfa !important}
+[stroke="#0a0c03" i]{stroke:#a78bfa !important}
+[fill="#0a0c04" i]{fill:#2a2152 !important}
+[stroke="#0a0c04" i]{stroke:#2a2152 !important}
+[fill="#0a0c05" i]{fill:#fbbf24 !important}
+[stroke="#0a0c05" i]{stroke:#fbbf24 !important}
+[fill="#0a0c06" i]{fill:#3a2d0d !important}
+[stroke="#0a0c06" i]{stroke:#3a2d0d !important}
+[fill="#0a0c07" i]{fill:#fb7185 !important}
+[stroke="#0a0c07" i]{stroke:#fb7185 !important}
+[fill="#0a0c08" i]{fill:#43192b !important}
+[stroke="#0a0c08" i]{stroke:#43192b !important}
+[fill="#0a0c09" i]{fill:#38bdf8 !important}
+[stroke="#0a0c09" i]{stroke:#38bdf8 !important}
+[fill="#0a0c10" i]{fill:#0c2e48 !important}
+[stroke="#0a0c10" i]{stroke:#0c2e48 !important}
+[fill="#0a0c11" i]{fill:#4ade80 !important}
+[stroke="#0a0c11" i]{stroke:#4ade80 !important}
+[fill="#0a0c12" i]{fill:#0f3220 !important}
+[stroke="#0a0c12" i]{stroke:#0f3220 !important}
+.fill-N1{fill:#e6edf3 !important}
+.stroke-N1{stroke:#e6edf3 !important}
+.color-N1{color:#e6edf3 !important}
+.fill-N2{fill:#9aa7b8 !important}
+.stroke-N2{stroke:#9aa7b8 !important}
+.color-N2{color:#9aa7b8 !important}
+.fill-N7{fill:#0b1120 !important}
+.stroke-N7{stroke:#0b1120 !important}
+.color-N7{color:#0b1120 !important}
+}
+</style><svg class="d2-svg" width="986" height="315" viewBox="-28 -28 986 315"><style type="text/css"><![CDATA[
+.d2-781246934 .text {
+	font-family: "d2-781246934-font-regular";
+}
+@font-face {
+	font-family: d2-781246934-font-regular;
+	src: url("data:application/font-woff;base64,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");
+}
+.d2-781246934 .text-mono {
+	font-family: "d2-781246934-font-mono";
+}
+@font-face {
+	font-family: d2-781246934-font-mono;
+	src: url("data:application/font-woff;base64,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");
+}]]></style><style type="text/css"><![CDATA[.shape {
+  shape-rendering: geometricPrecision;
+  stroke-linejoin: round;
+}
+.connection {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.blend {
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+		.d2-781246934 .fill-N1{fill:#0A0F25;}
+		.d2-781246934 .fill-N2{fill:#676C7E;}
+		.d2-781246934 .fill-N3{fill:#9499AB;}
+		.d2-781246934 .fill-N4{fill:#CFD2DD;}
+		.d2-781246934 .fill-N5{fill:#DEE1EB;}
+		.d2-781246934 .fill-N6{fill:#EEF1F8;}
+		.d2-781246934 .fill-N7{fill:#FFFFFF;}
+		.d2-781246934 .fill-B1{fill:#0D32B2;}
+		.d2-781246934 .fill-B2{fill:#0D32B2;}
+		.d2-781246934 .fill-B3{fill:#E3E9FD;}
+		.d2-781246934 .fill-B4{fill:#E3E9FD;}
+		.d2-781246934 .fill-B5{fill:#EDF0FD;}
+		.d2-781246934 .fill-B6{fill:#F7F8FE;}
+		.d2-781246934 .fill-AA2{fill:#4A6FF3;}
+		.d2-781246934 .fill-AA4{fill:#EDF0FD;}
+		.d2-781246934 .fill-AA5{fill:#F7F8FE;}
+		.d2-781246934 .fill-AB4{fill:#EDF0FD;}
+		.d2-781246934 .fill-AB5{fill:#F7F8FE;}
+		.d2-781246934 .stroke-N1{stroke:#0A0F25;}
+		.d2-781246934 .stroke-N2{stroke:#676C7E;}
+		.d2-781246934 .stroke-N3{stroke:#9499AB;}
+		.d2-781246934 .stroke-N4{stroke:#CFD2DD;}
+		.d2-781246934 .stroke-N5{stroke:#DEE1EB;}
+		.d2-781246934 .stroke-N6{stroke:#EEF1F8;}
+		.d2-781246934 .stroke-N7{stroke:#FFFFFF;}
+		.d2-781246934 .stroke-B1{stroke:#0D32B2;}
+		.d2-781246934 .stroke-B2{stroke:#0D32B2;}
+		.d2-781246934 .stroke-B3{stroke:#E3E9FD;}
+		.d2-781246934 .stroke-B4{stroke:#E3E9FD;}
+		.d2-781246934 .stroke-B5{stroke:#EDF0FD;}
+		.d2-781246934 .stroke-B6{stroke:#F7F8FE;}
+		.d2-781246934 .stroke-AA2{stroke:#4A6FF3;}
+		.d2-781246934 .stroke-AA4{stroke:#EDF0FD;}
+		.d2-781246934 .stroke-AA5{stroke:#F7F8FE;}
+		.d2-781246934 .stroke-AB4{stroke:#EDF0FD;}
+		.d2-781246934 .stroke-AB5{stroke:#F7F8FE;}
+		.d2-781246934 .background-color-N1{background-color:#0A0F25;}
+		.d2-781246934 .background-color-N2{background-color:#676C7E;}
+		.d2-781246934 .background-color-N3{background-color:#9499AB;}
+		.d2-781246934 .background-color-N4{background-color:#CFD2DD;}
+		.d2-781246934 .background-color-N5{background-color:#DEE1EB;}
+		.d2-781246934 .background-color-N6{background-color:#EEF1F8;}
+		.d2-781246934 .background-color-N7{background-color:#FFFFFF;}
+		.d2-781246934 .background-color-B1{background-color:#0D32B2;}
+		.d2-781246934 .background-color-B2{background-color:#0D32B2;}
+		.d2-781246934 .background-color-B3{background-color:#E3E9FD;}
+		.d2-781246934 .background-color-B4{background-color:#E3E9FD;}
+		.d2-781246934 .background-color-B5{background-color:#EDF0FD;}
+		.d2-781246934 .background-color-B6{background-color:#F7F8FE;}
+		.d2-781246934 .background-color-AA2{background-color:#4A6FF3;}
+		.d2-781246934 .background-color-AA4{background-color:#EDF0FD;}
+		.d2-781246934 .background-color-AA5{background-color:#F7F8FE;}
+		.d2-781246934 .background-color-AB4{background-color:#EDF0FD;}
+		.d2-781246934 .background-color-AB5{background-color:#F7F8FE;}
+		.d2-781246934 .color-N1{color:#0A0F25;}
+		.d2-781246934 .color-N2{color:#676C7E;}
+		.d2-781246934 .color-N3{color:#9499AB;}
+		.d2-781246934 .color-N4{color:#CFD2DD;}
+		.d2-781246934 .color-N5{color:#DEE1EB;}
+		.d2-781246934 .color-N6{color:#EEF1F8;}
+		.d2-781246934 .color-N7{color:#FFFFFF;}
+		.d2-781246934 .color-B1{color:#0D32B2;}
+		.d2-781246934 .color-B2{color:#0D32B2;}
+		.d2-781246934 .color-B3{color:#E3E9FD;}
+		.d2-781246934 .color-B4{color:#E3E9FD;}
+		.d2-781246934 .color-B5{color:#EDF0FD;}
+		.d2-781246934 .color-B6{color:#F7F8FE;}
+		.d2-781246934 .color-AA2{color:#4A6FF3;}
+		.d2-781246934 .color-AA4{color:#EDF0FD;}
+		.d2-781246934 .color-AA5{color:#F7F8FE;}
+		.d2-781246934 .color-AB4{color:#EDF0FD;}
+		.d2-781246934 .color-AB5{color:#F7F8FE;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0D32B2;--color-border-muted:#0D32B2;--color-neutral-muted:#EEF1F8;--color-accent-fg:#0D32B2;--color-accent-emphasis:#0D32B2;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker-d2-781246934);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-darker-d2-781246934);mix-blend-mode:lighten}.sketch-overlay-B3{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.sketch-overlay-B4{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.sketch-overlay-B5{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark-d2-781246934);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.sketch-overlay-AA5{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.sketch-overlay-AB5{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker-d2-781246934);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark-d2-781246934);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal-d2-781246934);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal-d2-781246934);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright-d2-781246934);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style><style type="text/css"><![CDATA[@keyframes d2Transition-d2-781246934-0 {
+		0%, 0.000000% {
+				opacity: 0;
+		}
+		0.000000%, 16.659722% {
+				opacity: 1;
+		}
+		16.666667%, 100% {
+				opacity: 0;
+		}
+}@keyframes d2Transition-d2-781246934-1 {
+		0%, 16.659722% {
+				opacity: 0;
+		}
+		16.666667%, 33.326389% {
+				opacity: 1;
+		}
+		33.333333%, 100% {
+				opacity: 0;
+		}
+}@keyframes d2Transition-d2-781246934-2 {
+		0%, 33.326389% {
+				opacity: 0;
+		}
+		33.333333%, 49.993056% {
+				opacity: 1;
+		}
+		50.000000%, 100% {
+				opacity: 0;
+		}
+}@keyframes d2Transition-d2-781246934-3 {
+		0%, 49.993056% {
+				opacity: 0;
+		}
+		50.000000%, 66.659722% {
+				opacity: 1;
+		}
+		66.666667%, 100% {
+				opacity: 0;
+		}
+}@keyframes d2Transition-d2-781246934-4 {
+		0%, 66.659722% {
+				opacity: 0;
+		}
+		66.666667%, 83.326389% {
+				opacity: 1;
+		}
+		83.333333%, 100% {
+				opacity: 0;
+		}
+}@keyframes d2Transition-d2-781246934-5 {
+		0%, 83.326389% {
+				opacity: 0;
+		}
+		83.333333%, 100.000000% {
+				opacity: 1;
+		}
+}]]></style><g style="animation: d2Transition-d2-781246934-0 14400ms infinite" class="d2-781246934 " width="986" height="315" viewBox="-28 -28 986 315"><rect x="-28" y="-28" width="986" height="315" rx="0" fill="#0a0b01" stroke-width="0" /><g class="ZGlh invisible"><g class="shape" ><rect x="0" y="0" width="930" height="201" stroke="#0a0b01" fill="#0a0b01" style="stroke-width:0;" /></g></g><g class="ZXhwbGljYQ== paso"><g class="shape" ><rect x="0" y="215" width="930" height="44" stroke="#0a0b02" fill="#0a0b02" style="stroke-width:0;" /></g><text x="465" y="242.5" fill="#0a0b04" class="text" style="text-anchor:middle;font-size:15px">El día t. ¿Qué datos existen cuando hay que pronosticar?</text></g><g class="ZGlhLmFudGVz panel"><g class="shape" ><rect x="18" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="161" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hasta ayer</text></g><g class="ZGlhLm1hbmFuYQ== panel"><g class="shape" ><rect x="322" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="465" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 06:00</text></g><g class="ZGlhLm5vY2hl panel"><g class="shape" ><rect x="626" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="769" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 24:00</text></g><g class="ZGlhLmFudGVzLnk3 dato"><g class="shape" ><rect x="26" y="45" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="161" y="69" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">consumo hace 7 días  y(t−7)</text></g><g class="ZGlhLmFudGVzLnkx dato"><g class="shape" ><rect x="26" y="91" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="161" y="115" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">consumo de ayer  y(t−1)</text></g><g class="ZGlhLmFudGVzLnRw dato"><g class="shape" ><rect x="26" y="137" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="161" y="161" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico de temperatura</text></g><g class="ZGlhLm1hbmFuYS5w dato"><g class="shape" ><rect x="330" y="45" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="465" y="69" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">producción planificada  p(t)</text></g><g class="ZGlhLm1hbmFuYS5j dato"><g class="shape" ><rect x="330" y="91" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="465" y="115" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">calendario  día de la semana</text></g><g class="ZGlhLm1hbmFuYS5m modelo"><g class="shape" ><rect x="330" y="137" width="270" height="38" rx="8" stroke="#0a0b08" fill="#0a0b07" style="stroke-width:2;" /></g><text x="465" y="161" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico  ŷ(t) = f(x(t))</text></g><g class="ZGlhLm5vY2hlLnRy dato"><g class="shape" ><rect x="634" y="45" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="69" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">temperatura real  τ(t)</text></g><g class="ZGlhLm5vY2hlLnk= dato"><g class="shape" ><rect x="634" y="91" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="115" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">consumo real  y(t)</text></g><g class="ZGlhLm5vY2hlLmU= dato"><g class="shape" ><rect x="634" y="137" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="161" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">error del día  |y(t) − ŷ(t)|</text></g><mask id="d2-781246934" maskUnits="userSpaceOnUse" x="-28" y="-28" width="986" height="315">
+<rect x="-28" y="-28" width="986" height="315" fill="white"></rect>
+
+</mask></g><g style="animation: d2Transition-d2-781246934-1 14400ms infinite" class="d2-781246934 " width="986" height="315" viewBox="-28 -28 986 315"><rect x="-28" y="-28" width="986" height="315" rx="0" fill="#0a0b01" stroke-width="0" /><g class="ZGlh invisible"><g class="shape" ><rect x="0" y="0" width="930" height="201" stroke="#0a0b01" fill="#0a0b01" style="stroke-width:0;" /></g></g><g class="ZXhwbGljYQ== paso"><g class="shape" ><rect x="0" y="215" width="930" height="44" stroke="#0a0b02" fill="#0a0b02" style="stroke-width:0;" /></g><text x="465" y="242.5" fill="#0a0b04" class="text" style="text-anchor:middle;font-size:15px">Al empezar el día ya se conocen el consumo de los días cerrados y el pronóstico del clima.</text></g><g class="ZGlhLmFudGVz panel"><g class="shape" ><rect x="18" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="161" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hasta ayer</text></g><g class="ZGlhLm1hbmFuYQ== panel"><g class="shape" ><rect x="322" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="465" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 06:00</text></g><g class="ZGlhLm5vY2hl panel"><g class="shape" ><rect x="626" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="769" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 24:00</text></g><g class="ZGlhLmFudGVzLnk3 conocido"><g class="shape" ><rect x="26" y="45" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo hace 7 días  y(t−7)</text></g><g class="ZGlhLmFudGVzLnkx conocido"><g class="shape" ><rect x="26" y="91" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo de ayer  y(t−1)</text></g><g class="ZGlhLmFudGVzLnRw conocido"><g class="shape" ><rect x="26" y="137" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="161" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico de temperatura</text></g><g class="ZGlhLm1hbmFuYS5w dato"><g class="shape" ><rect x="330" y="45" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="465" y="69" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">producción planificada  p(t)</text></g><g class="ZGlhLm1hbmFuYS5j dato"><g class="shape" ><rect x="330" y="91" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="465" y="115" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">calendario  día de la semana</text></g><g class="ZGlhLm1hbmFuYS5m modelo"><g class="shape" ><rect x="330" y="137" width="270" height="38" rx="8" stroke="#0a0b08" fill="#0a0b07" style="stroke-width:2;" /></g><text x="465" y="161" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico  ŷ(t) = f(x(t))</text></g><g class="ZGlhLm5vY2hlLnRy dato"><g class="shape" ><rect x="634" y="45" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="69" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">temperatura real  τ(t)</text></g><g class="ZGlhLm5vY2hlLnk= dato"><g class="shape" ><rect x="634" y="91" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="115" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">consumo real  y(t)</text></g><g class="ZGlhLm5vY2hlLmU= dato"><g class="shape" ><rect x="634" y="137" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="161" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">error del día  |y(t) − ŷ(t)|</text></g><mask id="d2-830586573" maskUnits="userSpaceOnUse" x="-28" y="-28" width="986" height="315">
+<rect x="-28" y="-28" width="986" height="315" fill="white"></rect>
+
+</mask></g><g style="animation: d2Transition-d2-781246934-2 14400ms infinite" class="d2-781246934 " width="986" height="315" viewBox="-28 -28 986 315"><rect x="-28" y="-28" width="986" height="315" rx="0" fill="#0a0b01" stroke-width="0" /><g class="ZGlh invisible"><g class="shape" ><rect x="0" y="0" width="930" height="201" stroke="#0a0b01" fill="#0a0b01" style="stroke-width:0;" /></g></g><g class="ZXhwbGljYQ== paso"><g class="shape" ><rect x="0" y="215" width="930" height="44" stroke="#0a0b02" fill="#0a0b02" style="stroke-width:0;" /></g><text x="465" y="242.5" fill="#0a0b04" class="text" style="text-anchor:middle;font-size:15px">El plan de producción y el calendario también se saben de antemano.</text></g><g class="ZGlhLmFudGVz panel"><g class="shape" ><rect x="18" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="161" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hasta ayer</text></g><g class="ZGlhLm1hbmFuYQ== panel"><g class="shape" ><rect x="322" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="465" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 06:00</text></g><g class="ZGlhLm5vY2hl panel"><g class="shape" ><rect x="626" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="769" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 24:00</text></g><g class="ZGlhLmFudGVzLnk3 conocido"><g class="shape" ><rect x="26" y="45" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo hace 7 días  y(t−7)</text></g><g class="ZGlhLmFudGVzLnkx conocido"><g class="shape" ><rect x="26" y="91" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo de ayer  y(t−1)</text></g><g class="ZGlhLmFudGVzLnRw conocido"><g class="shape" ><rect x="26" y="137" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="161" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico de temperatura</text></g><g class="ZGlhLm1hbmFuYS5w conocido"><g class="shape" ><rect x="330" y="45" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="465" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">producción planificada  p(t)</text></g><g class="ZGlhLm1hbmFuYS5j conocido"><g class="shape" ><rect x="330" y="91" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="465" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">calendario  día de la semana</text></g><g class="ZGlhLm1hbmFuYS5m modelo"><g class="shape" ><rect x="330" y="137" width="270" height="38" rx="8" stroke="#0a0b08" fill="#0a0b07" style="stroke-width:2;" /></g><text x="465" y="161" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico  ŷ(t) = f(x(t))</text></g><g class="ZGlhLm5vY2hlLnRy dato"><g class="shape" ><rect x="634" y="45" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="69" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">temperatura real  τ(t)</text></g><g class="ZGlhLm5vY2hlLnk= dato"><g class="shape" ><rect x="634" y="91" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="115" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">consumo real  y(t)</text></g><g class="ZGlhLm5vY2hlLmU= dato"><g class="shape" ><rect x="634" y="137" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="161" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">error del día  |y(t) − ŷ(t)|</text></g><mask id="d2-130309418" maskUnits="userSpaceOnUse" x="-28" y="-28" width="986" height="315">
+<rect x="-28" y="-28" width="986" height="315" fill="white"></rect>
+
+</mask></g><g style="animation: d2Transition-d2-781246934-3 14400ms infinite" class="d2-781246934 " width="986" height="315" viewBox="-28 -28 986 315"><rect x="-28" y="-28" width="986" height="315" rx="0" fill="#0a0b01" stroke-width="0" /><g class="ZGlh invisible"><g class="shape" ><rect x="0" y="0" width="930" height="201" stroke="#0a0b01" fill="#0a0b01" style="stroke-width:0;" /></g></g><g class="ZXhwbGljYQ== paso"><g class="shape" ><rect x="0" y="215" width="930" height="44" stroke="#0a0b02" fill="#0a0b02" style="stroke-width:0;" /></g><text x="465" y="242.5" fill="#0a0b04" class="text" style="text-anchor:middle;font-size:15px">A las 06:00 el modelo pronostica con esos datos y nada más: x(t) solo usa lo encendido.</text></g><g class="ZGlhLmFudGVz panel"><g class="shape" ><rect x="18" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="161" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hasta ayer</text></g><g class="ZGlhLm1hbmFuYQ== panel"><g class="shape" ><rect x="322" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="465" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 06:00</text></g><g class="ZGlhLm5vY2hl panel"><g class="shape" ><rect x="626" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="769" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 24:00</text></g><g class="ZGlhLmFudGVzLnk3 conocido"><g class="shape" ><rect x="26" y="45" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo hace 7 días  y(t−7)</text></g><g class="ZGlhLmFudGVzLnkx conocido"><g class="shape" ><rect x="26" y="91" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo de ayer  y(t−1)</text></g><g class="ZGlhLmFudGVzLnRw conocido"><g class="shape" ><rect x="26" y="137" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="161" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico de temperatura</text></g><g class="ZGlhLm1hbmFuYS5w conocido"><g class="shape" ><rect x="330" y="45" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="465" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">producción planificada  p(t)</text></g><g class="ZGlhLm1hbmFuYS5j conocido"><g class="shape" ><rect x="330" y="91" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="465" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">calendario  día de la semana</text></g><g class="ZGlhLm1hbmFuYS5m modelo-activo"><g class="shape" ><rect x="330" y="137" width="270" height="38" rx="8" stroke="#0a0c03" fill="#0a0c04" style="stroke-width:3;" /></g><text x="465" y="161" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico  ŷ(t) = f(x(t))</text></g><g class="ZGlhLm5vY2hlLnRy dato"><g class="shape" ><rect x="634" y="45" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="69" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">temperatura real  τ(t)</text></g><g class="ZGlhLm5vY2hlLnk= dato"><g class="shape" ><rect x="634" y="91" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="115" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">consumo real  y(t)</text></g><g class="ZGlhLm5vY2hlLmU= dato"><g class="shape" ><rect x="634" y="137" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="161" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">error del día  |y(t) − ŷ(t)|</text></g><mask id="d2-3080617035" maskUnits="userSpaceOnUse" x="-28" y="-28" width="986" height="315">
+<rect x="-28" y="-28" width="986" height="315" fill="white"></rect>
+
+</mask></g><g style="animation: d2Transition-d2-781246934-4 14400ms infinite" class="d2-781246934 " width="986" height="315" viewBox="-28 -28 986 315"><rect x="-28" y="-28" width="986" height="315" rx="0" fill="#0a0b01" stroke-width="0" /><g class="ZGlh invisible"><g class="shape" ><rect x="0" y="0" width="930" height="201" stroke="#0a0b01" fill="#0a0b01" style="stroke-width:0;" /></g></g><g class="ZXhwbGljYQ== paso"><g class="shape" ><rect x="0" y="215" width="930" height="44" stroke="#0a0b02" fill="#0a0b02" style="stroke-width:0;" /></g><text x="465" y="242.5" fill="#0a0b04" class="text" style="text-anchor:middle;font-size:15px">La temperatura real y el consumo del día recién se conocen a las 24:00.</text></g><g class="ZGlhLmFudGVz panel"><g class="shape" ><rect x="18" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="161" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hasta ayer</text></g><g class="ZGlhLm1hbmFuYQ== panel"><g class="shape" ><rect x="322" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="465" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 06:00</text></g><g class="ZGlhLm5vY2hl panel"><g class="shape" ><rect x="626" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="769" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 24:00</text></g><g class="ZGlhLmFudGVzLnk3 conocido"><g class="shape" ><rect x="26" y="45" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo hace 7 días  y(t−7)</text></g><g class="ZGlhLmFudGVzLnkx conocido"><g class="shape" ><rect x="26" y="91" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo de ayer  y(t−1)</text></g><g class="ZGlhLmFudGVzLnRw conocido"><g class="shape" ><rect x="26" y="137" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="161" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico de temperatura</text></g><g class="ZGlhLm1hbmFuYS5w conocido"><g class="shape" ><rect x="330" y="45" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="465" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">producción planificada  p(t)</text></g><g class="ZGlhLm1hbmFuYS5j conocido"><g class="shape" ><rect x="330" y="91" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="465" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">calendario  día de la semana</text></g><g class="ZGlhLm1hbmFuYS5m modelo-activo"><g class="shape" ><rect x="330" y="137" width="270" height="38" rx="8" stroke="#0a0c03" fill="#0a0c04" style="stroke-width:3;" /></g><text x="465" y="161" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico  ŷ(t) = f(x(t))</text></g><g class="ZGlhLm5vY2hlLnRy llega"><g class="shape" ><rect x="634" y="45" width="270" height="38" rx="8" stroke="#0a0c05" fill="#0a0c06" style="stroke-width:2;" /></g><text x="769" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">temperatura real  τ(t)</text></g><g class="ZGlhLm5vY2hlLnk= llega"><g class="shape" ><rect x="634" y="91" width="270" height="38" rx="8" stroke="#0a0c05" fill="#0a0c06" style="stroke-width:2;" /></g><text x="769" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo real  y(t)</text></g><g class="ZGlhLm5vY2hlLmU= dato"><g class="shape" ><rect x="634" y="137" width="270" height="38" rx="8" stroke="#0a0b03" fill="#0a0b07" style="stroke-width:1;" /></g><text x="769" y="161" fill="#0a0b06" class="text-mono" style="text-anchor:middle;font-size:14px">error del día  |y(t) − ŷ(t)|</text></g><mask id="d2-3250703177" maskUnits="userSpaceOnUse" x="-28" y="-28" width="986" height="315">
+<rect x="-28" y="-28" width="986" height="315" fill="white"></rect>
+
+</mask></g><g style="animation: d2Transition-d2-781246934-5 14400ms infinite" class="d2-781246934 " width="986" height="315" viewBox="-28 -28 986 315"><rect x="-28" y="-28" width="986" height="315" rx="0" fill="#0a0b01" stroke-width="0" /><g class="ZGlh invisible"><g class="shape" ><rect x="0" y="0" width="930" height="201" stroke="#0a0b01" fill="#0a0b01" style="stroke-width:0;" /></g></g><g class="ZXhwbGljYQ== paso"><g class="shape" ><rect x="0" y="215" width="930" height="44" stroke="#0a0b02" fill="#0a0b02" style="stroke-width:0;" /></g><text x="465" y="242.5" fill="#0a0b04" class="text" style="text-anchor:middle;font-size:15px">Entonces se mide el error. Un modelo que entrena con τ(t) usa un dato que a las 06:00 no existe.</text></g><g class="ZGlhLmFudGVz panel"><g class="shape" ><rect x="18" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="161" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hasta ayer</text></g><g class="ZGlhLm1hbmFuYQ== panel"><g class="shape" ><rect x="322" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="465" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 06:00</text></g><g class="ZGlhLm5vY2hl panel"><g class="shape" ><rect x="626" y="18" width="286" height="165" rx="12" stroke="#0a0b03" fill="#0a0b02" style="stroke-width:1;" /></g><text x="769" y="36" fill="#0a0b05" class="text-mono" style="text-anchor:middle;font-size:13px">hoy, 24:00</text></g><g class="ZGlhLmFudGVzLnk3 conocido"><g class="shape" ><rect x="26" y="45" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo hace 7 días  y(t−7)</text></g><g class="ZGlhLmFudGVzLnkx conocido"><g class="shape" ><rect x="26" y="91" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo de ayer  y(t−1)</text></g><g class="ZGlhLmFudGVzLnRw conocido"><g class="shape" ><rect x="26" y="137" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="161" y="161" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico de temperatura</text></g><g class="ZGlhLm1hbmFuYS5w conocido"><g class="shape" ><rect x="330" y="45" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="465" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">producción planificada  p(t)</text></g><g class="ZGlhLm1hbmFuYS5j conocido"><g class="shape" ><rect x="330" y="91" width="270" height="38" rx="8" stroke="#0a0c01" fill="#0a0c02" style="stroke-width:2;" /></g><text x="465" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">calendario  día de la semana</text></g><g class="ZGlhLm1hbmFuYS5m modelo-activo"><g class="shape" ><rect x="330" y="137" width="270" height="38" rx="8" stroke="#0a0c03" fill="#0a0c04" style="stroke-width:3;" /></g><text x="465" y="161" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">pronóstico  ŷ(t) = f(x(t))</text></g><g class="ZGlhLm5vY2hlLnRy llega"><g class="shape" ><rect x="634" y="45" width="270" height="38" rx="8" stroke="#0a0c05" fill="#0a0c06" style="stroke-width:2;" /></g><text x="769" y="69" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">temperatura real  τ(t)</text></g><g class="ZGlhLm5vY2hlLnk= llega"><g class="shape" ><rect x="634" y="91" width="270" height="38" rx="8" stroke="#0a0c05" fill="#0a0c06" style="stroke-width:2;" /></g><text x="769" y="115" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">consumo real  y(t)</text></g><g class="ZGlhLm5vY2hlLmU= llega"><g class="shape" ><rect x="634" y="137" width="270" height="38" rx="8" stroke="#0a0c05" fill="#0a0c06" style="stroke-width:2;" /></g><text x="769" y="161" fill="#0a0b04" class="text-mono" style="text-anchor:middle;font-size:14px">error del día  |y(t) − ŷ(t)|</text></g><mask id="d2-3620837248" maskUnits="userSpaceOnUse" x="-28" y="-28" width="986" height="315">
+<rect x="-28" y="-28" width="986" height="315" fill="white"></rect>
+
+</mask></g></svg></svg>
